@@ -553,7 +553,7 @@ export default function CircularGallery({
     <div
       className={`w-full h-full overflow-hidden cursor-grab active:cursor-grabbing ${className}`}
       ref={containerRef}
-      title="Drag to browse · click centered artwork to expand"
+      title="drag to browse · click centered art to expand"
     />
   );
 }

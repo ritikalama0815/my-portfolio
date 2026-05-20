@@ -34,8 +34,16 @@ import plawnet from './plawnet.svg'
 import ai_interviewer from './ai-interviewer.svg'
 import emotion from './emotion.svg'
 import forestfire from './forestfire.svg'
+import assistant from './assistant.svg'
+import dna from './dna.svg'
+import game2 from './game2.svg'
+import group from './group.svg'
+import money from './money.svg'
+import prokaryotic from './prokaryotic.svg'
+
 
 export {
+    assistant, dna, game2, group, money, prokaryotic,
     inventory,
     plawnet, ai_interviewer,
     emotion,

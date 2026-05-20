@@ -17,6 +17,9 @@ const TextType = ({
   cursorBlinkDuration = 0.5,
   textColors = [],
   variableSpeed,
+  variableSpeedEnabled = false,
+  variableSpeedMin = 60,
+  variableSpeedMax = 120,
   onSentenceComplete,
   startOnVisible = false,
   reverseMode = false,
@@ -32,11 +35,17 @@ const TextType = ({
 
   const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
 
+  const resolvedVariableSpeed = useMemo(() => {
+    if (variableSpeed) return variableSpeed;
+    if (variableSpeedEnabled) return { min: variableSpeedMin, max: variableSpeedMax };
+    return null;
+  }, [variableSpeed, variableSpeedEnabled, variableSpeedMin, variableSpeedMax]);
+
   const getRandomSpeed = useCallback(() => {
-    if (!variableSpeed) return typingSpeed;
-    const { min, max } = variableSpeed;
+    if (!resolvedVariableSpeed) return typingSpeed;
+    const { min, max } = resolvedVariableSpeed;
     return Math.random() * (max - min) + min;
-  }, [variableSpeed, typingSpeed]);
+  }, [resolvedVariableSpeed, typingSpeed]);
 
   const getCurrentTextColor = () => {
     if (textColors.length === 0) return 'inherit';
@@ -86,9 +95,7 @@ const TextType = ({
           setIsDeleting(false);
           if (currentTextIndex === textArray.length - 1 && !loop) return;
 
-          if (onSentenceComplete) {
-            onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
-          }
+          onSentenceComplete?.(textArray[currentTextIndex], currentTextIndex);
 
           setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
@@ -104,7 +111,7 @@ const TextType = ({
             setDisplayedText((prev) => prev + processedText[currentCharIndex]);
             setCurrentCharIndex((prev) => prev + 1);
           },
-          variableSpeed ? getRandomSpeed() : typingSpeed
+          resolvedVariableSpeed ? getRandomSpeed() : typingSpeed
         );
       } else if (textArray.length >= 1) {
         if (!loop && currentTextIndex === textArray.length - 1) return;
@@ -132,7 +139,7 @@ const TextType = ({
     initialDelay,
     isVisible,
     reverseMode,
-    variableSpeed,
+    resolvedVariableSpeed,
     onSentenceComplete,
     getRandomSpeed,
   ]);

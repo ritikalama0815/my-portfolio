@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { NavLink } from 'react-router-dom';
 
 const DEFAULT_ITEMS = [
   {
@@ -42,6 +42,7 @@ const DEFAULT_ITEMS = [
 
 export default function BubbleMenu({
   logo,
+  logoTo = '/',
   onMenuClick,
   className,
   style,
@@ -56,7 +57,6 @@ export default function BubbleMenu({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
-  const location = useLocation();
 
   const overlayRef = useRef(null);
   const bubblesRef = useRef([]);
@@ -64,12 +64,17 @@ export default function BubbleMenu({
 
   const menuItems = items?.length ? items : DEFAULT_ITEMS;
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    onMenuClick?.(false);
+  };
+
   const containerClassName = [
     'bubble-menu',
     useFixedPosition ? 'fixed' : 'absolute',
-    'left-0 right-0 top-6 md:top-8',
+    'left-0 right-0 top-6 sm:top-8',
     'flex items-center justify-between',
-    'gap-4 px-4 sm:px-8',
+    'gap-4 px-5 sm:px-8',
     'pointer-events-none',
     'z-[1001]',
     className,
@@ -77,23 +82,12 @@ export default function BubbleMenu({
     .filter(Boolean)
     .join(' ');
 
-  const closeMenu = () => {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-      onMenuClick?.(false);
-    }
-  };
-
   const handleToggle = () => {
     const nextState = !isMenuOpen;
     if (nextState) setShowOverlay(true);
     setIsMenuOpen(nextState);
     onMenuClick?.(nextState);
   };
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
 
   useEffect(() => {
     const overlay = overlayRef.current;
@@ -168,37 +162,89 @@ export default function BubbleMenu({
     return () => window.removeEventListener('resize', handleResize);
   }, [isMenuOpen, menuItems]);
 
-  const pillLinkClass = [
-    'pill-link',
-    'w-full',
-    'rounded-[999px]',
-    'no-underline',
-    'bg-white',
-    'text-inherit',
-    'shadow-[0_4px_14px_rgba(0,0,0,0.10)]',
-    'flex items-center justify-center',
-    'relative',
-    'transition-[background,color] duration-300 ease-in-out',
-    'box-border',
-    'whitespace-nowrap overflow-hidden',
-  ].join(' ');
+  const renderLink = (item, idx) => {
+    const pillClass = [
+      'pill-link',
+      'w-full',
+      'rounded-[999px]',
+      'no-underline',
+      'bg-white',
+      'text-inherit',
+      'shadow-[0_4px_14px_rgba(0,0,0,0.10)]',
+      'flex items-center justify-center',
+      'relative',
+      'transition-[background,color] duration-300 ease-in-out',
+      'box-border',
+      'whitespace-nowrap overflow-hidden',
+    ].join(' ');
 
-  const pillStyle = (item) => ({
-    '--item-rot': `${item.rotation ?? 0}deg`,
-    '--pill-bg': menuBg,
-    '--pill-color': menuContentColor,
-    '--hover-bg': item.hoverStyles?.bgColor || '#f3f4f6',
-    '--hover-color': item.hoverStyles?.textColor || menuContentColor,
-    background: 'var(--pill-bg)',
-    color: 'var(--pill-color)',
-    minHeight: 'var(--pill-min-h, 160px)',
-    padding: 'clamp(1.5rem, 3vw, 8rem) 0',
-    fontSize: 'clamp(1.5rem, 4vw, 4rem)',
-    fontWeight: 400,
-    lineHeight: 0,
-    willChange: 'transform',
-    height: 10,
-  });
+    const pillStyle = {
+      '--item-rot': `${item.rotation ?? 0}deg`,
+      '--pill-bg': menuBg,
+      '--pill-color': menuContentColor,
+      '--hover-bg': item.hoverStyles?.bgColor || '#f3f4f6',
+      '--hover-color': item.hoverStyles?.textColor || menuContentColor,
+      background: 'var(--pill-bg)',
+      color: 'var(--pill-color)',
+      minHeight: 'var(--pill-min-h, 160px)',
+      padding: 'clamp(1.5rem, 3vw, 8rem) 0',
+      fontSize: 'clamp(1.5rem, 4vw, 4rem)',
+      fontWeight: 400,
+      lineHeight: 0,
+      willChange: 'transform',
+      height: 10,
+    };
+
+    const label = (
+      <span
+        className="inline-block pill-label"
+        style={{ willChange: 'transform, opacity', height: '1.2em', lineHeight: 1.2 }}
+        ref={(el) => {
+          if (el) labelRefs.current[idx] = el;
+        }}
+      >
+        {item.label}
+      </span>
+    );
+
+    const setBubbleRef = (el) => {
+      if (el) bubblesRef.current[idx] = el;
+    };
+
+    const handleNavigate = () => closeMenu();
+
+    if (item.to) {
+      return (
+        <NavLink
+          role="menuitem"
+          to={item.to}
+          aria-label={item.ariaLabel || item.label}
+          className={({ isActive }) =>
+            [pillClass, isActive ? 'ring-2 ring-offset-2 ring-slate-300' : ''].filter(Boolean).join(' ')
+          }
+          style={pillStyle}
+          ref={setBubbleRef}
+          onClick={handleNavigate}
+        >
+          {label}
+        </NavLink>
+      );
+    }
+
+    return (
+      <a
+        role="menuitem"
+        href={item.href || '#'}
+        aria-label={item.ariaLabel || item.label}
+        className={pillClass}
+        style={pillStyle}
+        ref={setBubbleRef}
+        onClick={handleNavigate}
+      >
+        {label}
+      </a>
+    );
+  };
 
   return (
     <>
@@ -256,28 +302,6 @@ export default function BubbleMenu({
       `}</style>
 
       <nav className={containerClassName} style={style} aria-label="Main navigation">
-        <div
-          className={[
-            'bubble logo-bubble',
-            'inline-flex items-center justify-center',
-            'rounded-full',
-            'shadow-[0_4px_16px_rgba(0,0,0,0.12)]',
-            'pointer-events-auto',
-            'h-12 md:h-14',
-            'px-3 md:px-5',
-            'will-change-transform',
-          ].join(' ')}
-          aria-label="Logo"
-          style={{
-            background: menuBg,
-            minHeight: '48px',
-            borderRadius: '9999px',
-          }}
-        >
-          <span className="logo-content inline-flex h-full w-full items-center justify-center">
-            {logo}
-          </span>
-        </div>
 
         <button
           type="button"
@@ -291,6 +315,8 @@ export default function BubbleMenu({
             'w-12 h-12 md:w-14 md:h-14',
             'border-0 cursor-pointer p-0',
             'will-change-transform',
+            'ring-1 ring-slate-200/80',
+            'transition-transform duration-200 hover:scale-105 active:scale-95',
           ].join(' ')}
           onClick={handleToggle}
           aria-label={menuAriaLabel}
@@ -298,7 +324,7 @@ export default function BubbleMenu({
           style={{ background: menuBg }}
         >
           <span
-            className="menu-line mx-auto block rounded-[2px]"
+            className="menu-line block mx-auto rounded-[2px]"
             style={{
               width: 26,
               height: 2,
@@ -307,8 +333,9 @@ export default function BubbleMenu({
             }}
           />
           <span
-            className="menu-line short mx-auto mt-1.5 block rounded-[2px]"
+            className="menu-line short block mx-auto rounded-[2px]"
             style={{
+              marginTop: '6px',
               width: 26,
               height: 2,
               background: menuContentColor,
@@ -326,70 +353,40 @@ export default function BubbleMenu({
             useFixedPosition ? 'fixed' : 'absolute',
             'inset-0',
             'flex items-center justify-center',
-            'bg-white/40 backdrop-blur-sm',
             'pointer-events-none',
             'z-[1000]',
+            'bg-white/40 backdrop-blur-sm',
           ].join(' ')}
           aria-hidden={!isMenuOpen}
+          onClick={closeMenu}
         >
           <ul
             className={[
               'pill-list',
+              'list-none m-0 px-6',
+              'w-full max-w-[1600px] mx-auto',
+              'flex flex-wrap',
+              'gap-x-0 gap-y-1',
               'pointer-events-auto',
-              'mx-auto w-full max-w-[1600px] list-none',
-              'flex flex-wrap gap-x-0 gap-y-1 px-6',
             ].join(' ')}
             role="menu"
             aria-label="Menu links"
+            onClick={(e) => e.stopPropagation()}
           >
-            {menuItems.map((item, idx) => {
-              const linkInner = (
-                <>
-                  <span
-                    className="pill-label inline-block"
-                    style={{
-                      willChange: 'transform, opacity',
-                      height: '1.2em',
-                      lineHeight: 1.2,
-                    }}
-                    ref={(el) => {
-                      if (el) labelRefs.current[idx] = el;
-                    }}
-                  >
-                    {item.label}
-                  </span>
-                </>
-              );
-
-              const sharedProps = {
-                role: 'menuitem',
-                'aria-label': item.ariaLabel || item.label,
-                className: pillLinkClass,
-                style: pillStyle(item),
-                onClick: closeMenu,
-                ref: (el) => {
-                  if (el) bubblesRef.current[idx] = el;
-                },
-              };
-
-              return (
-                <li
-                  key={item.to || item.href || item.label}
-                  role="none"
-                  className="pill-col box-border flex [flex:0_0_calc(100%/3)] items-stretch justify-center"
-                >
-                  {item.to ? (
-                    <NavLink to={item.to} {...sharedProps}>
-                      {linkInner}
-                    </NavLink>
-                  ) : (
-                    <a href={item.href} {...sharedProps}>
-                      {linkInner}
-                    </a>
-                  )}
-                </li>
-              );
-            })}
+            {menuItems.map((item, idx) => (
+              <li
+                key={item.to || item.href || item.label}
+                role="none"
+                className={[
+                  'pill-col',
+                  'flex justify-center items-stretch',
+                  '[flex:0_0_calc(100%/3)]',
+                  'box-border',
+                ].join(' ')}
+              >
+                {renderLink(item, idx)}
+              </li>
+            ))}
           </ul>
         </div>
       )}

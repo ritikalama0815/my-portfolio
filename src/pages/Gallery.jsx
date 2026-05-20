@@ -3,41 +3,124 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import TextType from '../components/TextType';
-import {ai, flins, nahihi, mavuika, frieren, columbina, venti, cat, makima, evangelion, forest, father, illumi, maomao, wall, room, blueberry, scaramouche} from "../assets/images";
+import GlitchPageLayout from '../components/GlitchPageLayout';
+import {
+  ai,
+  columbina,
+  venti,
+  cat,
+  makima,
+  evangelion,
+  forest,
+  father,
+  illumi,
+  maomao,
+  wall,
+  room,
+  blueberry,
+  scaramouche,
+  nahihi,
+  flins,
+  mavuika,
+  frieren,
+} from '../assets/images';
 
 const ARTWORKS = [
-  { id: 1, title: "Ai Hoshino", image: ai, description: "As an idol, she lived a life of deceit by pretending to genuinely love her fans. ", year: "2025", artist: "Ritika Lama" }, 
-    { id: 2, title: "Columbina", image: columbina, description: "3rd of Fatui Harbingers", year: "2026", artist: "Ritika Lama"},
-    { id: 3, title: "Cat", image: cat, description: "sleeping", year: "2025", artist: "Ritika Lama"},
-    { id: 4, title: "Venti", image: venti, description: "He is a free-spirited bard.", year: "2026", artist: "Ritika Lama"},
-        { id: 5, title: "Kaworu Nagisa", image: evangelion, description: "Kaworu Nagisa, the Fifth Child and seventeenth Angel. ", year: "2025", artist: "Ritika Lama" }, 
-        { id: 6, title: "Forest", image: forest, description: "Cold yet warm camp site", year: "2025", artist: "Ritika Lama"},
-        { id: 7, title: "Makima", image: makima, description: "The Chief Cabinet Secretary's Personal Devil Hunter", year: "2026", artist: "Ritika Lama"},
-        { id: 8, title: "Illumi", image: illumi,
-           description: "Illumi Zoldyck (イルミ＝ゾルディック) is an elite professional assassin and the eldest child of Silva and Kikyo Zoldyck. ",
-            year: "2025", artist: "Ritika Lama"},
-     { id: 9, title: "Arlecchino", image: father, description: "4th of Fatui Harbingers ", year: "2025", artist: "Ritika Lama" }, 
-     { id: 11, title: "Mao Mao", image: maomao, description: "Maomao (猫猫) is a member of the La Clan raised in the red-light district.", year: "2025", artist: "Ritika Lama"},
-     { id: 12, title: "Wall", image: wall,
-          description: "Beyond the wall lies a world unknown.",
-          year: "2025", artist: "Ritika Lama"},
-    { id: 13, title: "Flowery Room", image: room, description: "Flowery room perfect for wedding scenarios.", year: "2025", artist: "Ritika Lama"},
-    { id: 14, title: "Blueberry", image: blueberry, description: "Why is blueberry called blueberry but strawberry not called redberry?", year: "2025", artist: "Ritika Lama" },
-    { id: 15, title: "Scaramouche", image: scaramouche, 
-      description: "A story of Scaramouche who was used by a Doctor to perform various experimentations on him.", 
-      year: "2025", artist: "Ritika Lama"},
-      { id: 16, title: "Flins", image: flins, 
-        description: "A Snowland Fae acting as the guardian of the Final Night Cemetery.", 
-        year: "2026", artist: "Ritika Lama"},
-        { id: 17, title: "Mavuika", image: mavuika, 
-          description: "Also known by the ancient name Kiongozi and the Goetic name Haborym.", 
-          year: "2026", artist: "Ritika Lama"},
-          { id: 18, title: "Nahida", image: nahihi, 
-            description: "Fragment(?) of Greater Lord Rukkhadevata", 
-            year: "2026", artist: "Ritika Lama"},
-            { id: 19, title: "Frieren", image: frieren, 
-              description: "A very strong elf mage", 
-              year: "2026", artist: "Ritika Lama"},
+  {
+    id: 1,
+    title: 'Ai',
+    image: ai,
+    text: 'Ai',
+    description:
+      'Ai Hoshino was the lead idol of the original B-Komachi and mother of Aqua and Ruby. As an idol, she lived a life of deceit by pretending to genuinely love her fans.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  { id: 2, title: 'Columbina', image: columbina, text: 'Columbina', description: '3rd of Fatui Harbingers', year: '2026', artist: 'Ritika Lama' },
+  { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'sleeping', year: '2025', artist: 'Ritika Lama' },
+  { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'He is a free-spirited bard.', year: '2026', artist: 'Ritika Lama' },
+  {
+    id: 5,
+    title: 'Kaworu Nagisa',
+    image: evangelion,
+    text: 'Kaworu Nagisa',
+    description:
+      'Kaworu Nagisa, the Fifth Child and seventeenth Angel, is akin to Rei Ayanami as a Seed of Life in a human body.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  { id: 6, title: 'Forest', image: forest, text: 'Forest', description: 'Warm yet cold camp site', year: '2025', artist: 'Ritika Lama' },
+  {
+    id: 7,
+    title: 'Makima',
+    image: makima,
+    text: 'Makima',
+    description: "the Chief Cabinet Secretary's Personal Devil Hunter",
+    year: '2026',
+    artist: 'Ritika Lama',
+  },
+  {
+    id: 8,
+    title: 'Illumi',
+    image: illumi,
+    text: 'Illumi',
+    description:
+      'Illumi Zoldyck is an elite professional assassin and the eldest child of Silva and Kikyo Zoldyck.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  { id: 9, title: 'Arlecchino', image: father, text: 'Arlecchino', description: '4th of Fatui Harbingers', year: '2025', artist: 'Ritika Lama' },
+  {
+    id: 10,
+    title: 'Mao Mao',
+    image: maomao,
+    text: 'Mao Mao',
+    description:
+      'Maomao is the protagonist of The Apothecary Diaries series. She is an illegitimate member of the La Clan raised in the red-light district.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  {
+    id: 11,
+    title: 'Wall',
+    image: wall,
+    text: 'Wall',
+    description: 'Beyond the wall lies a world unknown.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  {
+    id: 12,
+    title: 'Flowery Room',
+    image: room,
+    text: 'Flowery Room',
+    description: 'Flowery room perfect for wedding scenarios.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  {
+    id: 13,
+    title: 'Blueberry',
+    image: blueberry,
+    text: 'Blueberry',
+    description: 'Why is blueberry called blueberry but strawberry not called redberry?',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  {
+    id: 14,
+    title: 'Scaramouche',
+    image: scaramouche,
+    text: 'Scaramouche',
+    description:
+      'A story of character from Genshin Impact portrayed as art. Scaramouche was used by an evil Doctor to perform various experimentations on him.',
+    year: '2025',
+    artist: 'Ritika Lama',
+  },
+  { id: 15, title: 'Nahihi', image: nahihi, text: 'Nahihi', description: 'character portrait study.', year: '2026', artist: 'Ritika Lama' },
+  { id: 16, title: 'Flins', image: flins, text: 'Flins', description: 'a fae in charge of cemetry', year: '2026', artist: 'Ritika Lama' },
+  { id: 17, title: 'Mavuika', image: mavuika, text: 'Mavuika', description: 'character portrait study.', year: '2026', artist: 'Ritika Lama' },
+  { id: 18, title: 'Frieren', image: frieren, text: 'Frieren', description: 'elf mage', year: '2026', artist: 'Ritika Lama' },
 ];
 
 function GalleryModal({ artwork, onClose, onPrev, onNext }) {
@@ -173,61 +256,56 @@ export default function Gallery() {
   }, []);
 
   return (
-    <motion.div
-      className="relative min-h-screen pt-20 overflow-x-hidden bg-gradient-to-b from-slate-100 via-violet-50/40 to-slate-200 pb-14"
-    >
-      <div
-        className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-violet-400/20 blur-3xl"
-        aria-hidden
-      />
+    <GlitchPageLayout fullWidth panelClassName="border-teal-500/20 bg-slate-950/88">
+      <motion.header
+        className="text-center"
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+          <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
+            Arts
+          </span>
+        </h1>
 
-      <header className="relative z-10 max-w-6xl px-4 mx-auto text-center">
-        <motion.h1
-          className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-700 via-fuchsia-600 to-indigo-600 sm:text-5xl"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          arts
-        </motion.h1>
-
-        <div className="relative mx-auto mt-4 flex min-h-[2.5rem] max-w-2xl items-center justify-center px-2">
+        <div className="relative mx-auto mt-4 flex min-h-[2.5rem] max-w-2xl justify-center px-2">
           <TextType
+            text={['scroll · drag · click to expand', 'welcome to my art gallery']}
             as="p"
-            text={[
-              'i like to draw (kinda)',
-              'scroll · click to expand',
-              "my art gallery"
-            ]}
-            typingSpeed={75}
-            pauseDuration={1500}
-            deletingSpeed={50}
+            className="text-center text-base font-medium text-emerald-100 sm:text-lg"
+            typingSpeed={70}
+            pauseDuration={1800}
+            deletingSpeed={45}
             showCursor
             cursorCharacter="_"
+            cursorClassName="text-cyan-300"
             cursorBlinkDuration={0.5}
-            className="text-base font-medium sm:text-lg md:text-xl"
-            textColors={['#6d28d9', '#a21caf', '#4f46e5']}
+            textColors={['#61dca3', '#61b3dc', '#a7f3d0']}
           />
         </div>
-      </header>
+
+        <p className="mt-2 text-sm text-slate-400">Center an artwork and click to expand</p>
+        <p className="text-sm text-slate-500">App: Procreate</p>
+      </motion.header>
 
       <motion.div
-        className="relative z-0 w-full max-w-6xl px-4 mx-auto mt-6"
+        className="relative mx-auto mt-8 w-full"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
       >
         <div
-          className="relative p-1 overflow-hidden shadow-xl rounded-3xl bg-gradient-to-br from-slate-900/5 via-white/40 to-violet-200/30 ring-1 ring-violet-200/60"
+          className="relative overflow-hidden rounded-2xl border border-white/15 bg-slate-900/60 p-1 shadow-inner ring-1 ring-emerald-500/20"
           style={{ height: 'min(68vh, 620px)' }}
         >
           <CircularGallery
             items={carouselItems}
             bend={1}
-            textColor="#312e81"
+            textColor="#e2e8f0"
             borderRadius={0.06}
             scrollSpeed={2}
             scrollEase={0.05}
-            className="rounded-[1.35rem] bg-slate-900/5"
+            className="rounded-[0.9rem]"
             onItemClick={handleItemClick}
           />
         </div>
@@ -244,6 +322,6 @@ export default function Gallery() {
           />
         )}
       </AnimatePresence>
-    </motion.div>
+    </GlitchPageLayout>
   );
 }

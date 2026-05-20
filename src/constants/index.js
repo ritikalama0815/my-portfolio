@@ -25,7 +25,7 @@ import {
     person,
     research, ai_interviewer,
     inventory,
-    plawnet, emotion, forestfire
+    plawnet, emotion, forestfire, assistant, dna, game2, group, money, prokaryotic
 } from "../assets/icons";
 
 export const skills = [
@@ -149,6 +149,19 @@ export const experiences = [
         ],
     },
     {
+        title: "Summer RA",
+        company_name: "Truman State University",
+        icon: assistant,
+        iconBg: "#b7e4c7",
+        date: "May 2025 - July 2025",
+        points: [
+            "Provided support and guidance to residents during the summer session.",
+            "Volunteered in Missouri Summer Special Olympics.",
+            "Responded to emergencies and provided assistance to residents.",
+            "Collaborated with other staff members to ensure the safety and well-being of residents.",
+        ],
+    },
+    {
         title: "Office Assistant",
         company_name: "Truman State University",
         icon: oa,
@@ -201,28 +214,42 @@ export const projects = [
         theme: 'btn-back-red',
         name: 'Wildfire Prediction',
         description: 'A deep learning model used to predict the wildfire based on satellite imagery utilizing EfficientNet-b0 backbone',
-        link: '',
+        link: 'https://github.com/ritikalama0815/wildfire-detection',
+    },
+    {
+        iconUrl: group,
+        theme: 'btn-back-blue',
+        name: 'CoLab',
+        description: 'A webapp that allows to track how much each student contributed in a group assignment. This is a Hackathon project for theme "AI to solve student\'s problem" (won Special Mention in Developer\'s category).',
+        link: 'https://github.com/ritikalama0815/CoLab',
+    },
+    {
+        iconUrl: person,
+        theme: 'btn-back-yellow',
+        name: 'My Portfolio',
+        description: 'You\'re currently looking at this project. It sums up my skills and projects while showcasing the 3D rendering of objects.',
+        link: 'https://github.com/ritikalama0815/3d-objects',
+    },
+    {
+        iconUrl: money,
+        theme: 'btn-back-red',
+        name: 'Currency Converter',
+        description: 'A web application that allows users to convert currency from one to another using real-time exchange rates (this is java and API practice project).',
+        link: 'https://github.com/ritikalama0815/curr-converter',
+    },
+    {
+        iconUrl: dna,
+        theme: 'btn-back-blue',
+        name: 'Bioinformatics Sequence Analysis',
+        description: 'This project focuses on analysis of DNA and protein sequences to calculate transversion ratio and transmembrane region predictor.',
+        link: 'https://github.com/ritikalama0815/bioinformatics',
     },
     {
         iconUrl: plawnet,
         theme: 'btn-back-red',
         name: 'Plawnet',
-        description: 'An e-commerce application for buying and selling of sustainable products.',
+        description: 'An e-commerce application for buying and selling of sustainable products. Hackathon project on theme "Sustainability" (won 1st place in beginner category).',
         link: 'https://github.com/ritikalama0815/Plawnet_truhacks',
-    },
-    {
-        iconUrl: game,
-        theme: 'btn-back-green',
-        name: 'Arena Game',
-        description: 'A simple web game that allows user to move freely within the arena to collect some "coins" that helps users to get the points',
-        link: 'https://github.com/ritikalama0815/arena-game',
-    },
-    {
-        iconUrl: book,
-        theme: 'btn-back-blue',
-        name: 'Recipe Book',
-        description: 'A book that has recipes of everything users ask for.',
-        link: 'https://github.com/ritikalama0815/Recipe',
     },
     {
         iconUrl: ai_interviewer,
@@ -232,17 +259,38 @@ export const projects = [
         link: 'https://github.com/ritikalama0815/interview-prep',
     },
     {
+        iconUrl: game,
+        theme: 'btn-back-green',
+        name: 'Arena Game',
+        description: 'A simple web game that allows user to move freely within the arena to collect some "coins" that helps users to get the points',
+        link: 'https://github.com/ritikalama0815/arena-game',
+    },
+    {
         iconUrl: emotion,
         theme: 'btn-back-black',
         name: 'Emotion Detection',
         description: 'A website that detects the emotion of a user based on their facial expression and gives them the feedback.',
         link: 'https://github.com/ritikalama0815/CS480---Final-Project',
+    }, 
+    {
+        iconUrl: prokaryotic,
+        theme: 'btn-back-blue',
+        name: 'Prokaryotic Promoter Finder',
+        description: 'This project focuses on finding the promoter region in the prokaryotic DNA sequence.',
+        link: 'https://github.com/ritikalama0815/prokaryotic-promoter-finder',
     },
     {
-        iconUrl: person,
-        theme: 'btn-back-yellow',
-        name: '3d Personal Portfolio',
-        description: 'Website that sums up my skills and projects while showcasing the 3D rendering of objects',
-        link: 'https://github.com/ritikalama0815/3d-objects',
+        iconUrl: game2,
+        theme: 'btn-back-blue',
+        name: 'Analysis of Player\'s Behavior',
+        description: 'This project examines how player activity and engagement relate to in-game spending (one of my data science projects).',
+        link: 'https://github.com/ritikalama0815/Analysis-of-Player-s-Behavior',
+    },
+    {
+        iconUrl: book,
+        theme: 'btn-back-blue',
+        name: 'Recipe Book',
+        description: 'A book that has recipes of everything users ask for.',
+        link: 'https://github.com/ritikalama0815/Recipe',
     },
 ];

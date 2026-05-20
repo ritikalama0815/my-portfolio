@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 const IC = () => {
   return (
@@ -15,7 +14,7 @@ const IC = () => {
                             href="https://github.com/ritikalama0815" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            class="text-black hover:text-green-500 transition-colors duration-300"
+                            class="text-black hover:text-white transition-colors duration-300"
                         >
                             github |
                         </a>

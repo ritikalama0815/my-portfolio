@@ -42,29 +42,29 @@ const renderContent = {
         boxShadow: '0.6vmin 0.6vmin #336cc1, 1vmin 1vmin #0092db, 1vmin 1vmin #0092db, 0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db'
       }}
     >
-      this is my portfolio. I am <span className='font-semibold'> Ritika</span>. 
-      <br/> you can move the cursor around to navigate through the island!
+      Welcome to my Portfolio! I am Ritika. 
+      <br/> (you can move the cursor around to navigate through the island!)
     </h1>
   ),
   2: (
     <InformationBox
-      text="this section includes the languages, frameworks, databases, or version control that I am familiar with. also, some experiences I have gathered working in various places." //text for stage 2
+      text="this section includes the skills I learned and experiences I have gathered working in various places." //text for stage 2
       link="/about"
-      btnText="click here "
+      btnText="click here for more "
     />
   ),
   3: (
     <InformationBox
-      text="i have done many personal projects and some influential researches in my college life. click more for details." //text for stage 2
+      text="I have done many projects and some influential researches in my college life. more here⬇" //text for stage 2
       link="/projects"
       btnText="more "
     />
   ),
   4: (
      <InformationBox
-        text="If you have any questions, feel free to leave me a message." //text for stage 2
+        text="if you liked this portfolio, feel free to leave me a message!" //text for stage 2
         link="/contact"
-        btnText="here "
+        btnText="here. "
     />
   )
 };
