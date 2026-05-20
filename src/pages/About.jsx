@@ -9,17 +9,17 @@ const About = () => {
     <section className='max-container'>
      
       <h3 className='text-lg head-text'>
-        Hello, I am <span  className="font-semibold drop-shadow"style={{
+        It's me <span  className="font-semibold drop-shadow"style={{
           background: 'linear-gradient(to right, #5500ff, #9965fd)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
           color: 'transparent'
-        }}>Ritika Lama.</span>
-      </h3> My name in my language is close to "Ritu" which means Spring!
+        }}>RITIKA!</span>
+      </h3>
       
-      <div className='flex flex-col gap-3 mt-5 text-lg text-blue-500'>
-        <p>Student at Truman State University</p>
+      <div className='flex flex-col gap-3 mt-5 text-lg text-blue-800'>
+        <p>I got my Bachelor's Degree in Computer Science (with Data Science Minor) from Truman State University.</p>
       </div>
       
       <div className='flex flex-col py-10'>
@@ -46,10 +46,10 @@ const About = () => {
       </div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience</h3>
-        <div className='flex flex-col gap-3 mt-5 text-lg text-blue-500'>
-          <p>I have worked as Researcher, TA, and some other jobs that have helped me to 
-            improve my soft skills. Here are the details:
+        <h3 className='subhead-text'>Work experience</h3>
+        <div className='flex flex-col gap-3 mt-5 text-lg text-blue-800'>
+          <p>I have worked as Researcher, TA, and few other jobs that have helped me to 
+            improve my soft skills.
           </p>
         </div>
         <div className='flex mt-12'>

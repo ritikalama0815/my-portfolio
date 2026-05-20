@@ -127,7 +127,7 @@ export const experiences = [
         company_name: "Computer Science Dept, Truman State University",
         icon: ra,
         iconBg: "#accbe1",
-        date: "Novemver 2023 - Present",
+        date: "Novemver 2023 - May 2026",
         points: [
             "Designed, analyzed, and implemented the deep learning and neural network architecture",
             "Performed the data collection of more than 30000 images and used them to train and test the model.",
@@ -140,7 +140,7 @@ export const experiences = [
         company_name: "Truman State University",
         icon: ta,
         iconBg: "#fbc3bc",
-        date: "Jan 2023 - Dec 2023",
+        date: "Jan 2023 - May 2026",
         points: [
             "Assisted more than 20 students with lectures, course materials, and assignments for Python and C++.",
             "Evaluated, and graded more than 50 coding assignments and projects.",

@@ -10,31 +10,34 @@ const IC = () => {
         marginTop: '8px', 
         gap: '7px'
     }}>
-        <p style={{
-            color: 'black', 
-            fontWeight: 'extrabold', 
-            flex: 1, 
-            fontSize: '5xl', 
-            textAlign: 'center'
-        }}>
-            Let's build something together. 
-        </p>
-        <Link to="/contact" style={{
-             color: 'white', 
-             background: 'linear-gradient(to right, #5500ff, #9965fd)', 
-             focusRing: '4px', 
-             outline: 'none', 
-             focusRingColor: 'blue-300', 
-             fontWeight: 'medium', 
-             borderRadius: '0.5rem', 
-             fontSize: '0.875rem', 
-             width: '100%', 
-             maxWidth: 'auto', 
-             padding: '0.625rem 1.25rem', 
-             textAlign: 'center'
-        }}>
-            Contact
-        </Link>
+            <div class="flex gap-2">
+                        <a 
+                            href="https://github.com/ritikalama0815" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-black hover:text-green-500 transition-colors duration-300"
+                        >
+                            github |
+                        </a>
+
+                        <a 
+                            href="https://www.instagram.com/ritika.t.lama" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-black hover:text-red-500 transition-colors duration-300"
+                        >
+                            instagram |
+                        </a>
+
+                        <a 
+                            href="https://www.linkedin.com/in/ritika-lama-b2605b2a4/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-black hover:text-blue-500 transition-colors duration-300"
+                        >
+                            linkedIn
+                        </a>
+            </div>
     </section>
   )
 }
