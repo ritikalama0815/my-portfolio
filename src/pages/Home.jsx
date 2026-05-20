@@ -61,8 +61,8 @@ const Home = () => {
   const [planeScale, planePosition] = adjustPlane();
 
   return (
-    <section className="w-full h-screen relative">
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+    <section className="relative w-full h-screen">
+      <div className='absolute left-0 right-0 z-10 flex items-center justify-center top-28'>
         {currentStage && < Information currentStage={currentStage} />}
       </div>
       <Canvas
@@ -98,7 +98,7 @@ const Home = () => {
         <img
           src={!isPlayingMusic ? soundoff : soundon}
           alt='sound'
-          className='w-10 h-10 cursor-pointer object-contain'
+          className='object-contain w-20 h-20 cursor-pointer'
           onClick={()=> setIsPlayingMusic(!isPlayingMusic)}
           />
       </div>
