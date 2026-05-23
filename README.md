@@ -17,6 +17,8 @@ the home page will also play the music when you visit the website.
 - User authentication for dashboard access
 
   MUSIC from : https://youtu.be/Kk60F8a7-Jw?si=j3ImUH62dr8mDKt4
+  Animated components from: https://reactbits.dev/
+  Icons from: https://www.svgrepo.com/
 
 
 
