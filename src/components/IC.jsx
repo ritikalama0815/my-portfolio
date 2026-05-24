@@ -34,7 +34,15 @@ const IC = () => {
                             rel="noopener noreferrer"
                             class="text-black hover:text-blue-500 transition-colors duration-300"
                         >
-                            linkedIn
+                            linkedIn |
+                        </a>
+                        <a 
+                            href="https://drive.google.com/file/d/1VngkQw0ru6U7RXauTR1y5gkzQY-iGo4i/view?usp=sharing" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="text-black hover:text-purple-500 transition-colors duration-300"
+                        >
+                            resume
                         </a>
             </div>
     </section>
