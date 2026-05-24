@@ -42,7 +42,7 @@ const IC = () => {
                             rel="noopener noreferrer"
                             class="text-black hover:text-purple-500 transition-colors duration-300"
                         >
-                            resume
+                            resume link
                         </a>
             </div>
     </section>
