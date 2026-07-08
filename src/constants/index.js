@@ -123,17 +123,15 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "Researcher",
-        company_name: "Computer Science Dept, Truman State University",
+        title: "Machine Learning Researcher",
+        company_name: "Computer Science Department",
         icon: ra,
         iconBg: "#accbe1",
         date: "Novemver 2023 - May 2026",
         points: [
-            "Designed, analyzed, and implemented the deep learning and neural network architecture",
-            "Performed the data collection of more than 30000 images and used them to train and test the model.",
-            "Participated in research meetings, presentation, and contributed to ideas for further development.",
-            "Contributed to documentation of journals, papers, and reports.",
-        ],
+            "I designed and implemented deep learning solutions for applied research projects and developed high-performing (high accuracy + low computational costs) neural networks while contributing to research publications and experimental studies.",
+            "I build machine learning models using Python and PyTorch, design experiments, preprocess large datasets, tune hyperparameters, and evaluate model performance across multiple architectures.",
+            "I contributed to technical documentation, literature reviews, research papers, and collaborate with other faculty and student researchers throughout the entire research lifecycle."        ],
     },
     {
         title: "Teacher's Assistant",
@@ -142,23 +140,21 @@ export const experiences = [
         iconBg: "#fbc3bc",
         date: "Jan 2023 - May 2026",
         points: [
-            "Assisted more than 20 students with lectures, course materials, and assignments for Python and C++.",
-            "Evaluated, and graded more than 50 coding assignments and projects.",
-            "Assisted students with code debugging and understanding error messages.",
-            "Participating in code reviews and providing constructive feedback to students.",
+            "I support students in developing strong programming foundations and work closely with faculty to conduct lab sessions and provide academic support. ",
+            "I led weekly laboratory sessions, provided one-on-one debugging assistance, and explained programming concepts including variables, functions, loops, object-oriented programming, and algorithmic thinking. ",
+            "I assisted with grading assignments, providing feedback, and supporting exam reviews."
         ],
     },
     {
-        title: "Summer RA",
+        title: "Resident Assistant",
         company_name: "Truman State University",
         icon: assistant,
         iconBg: "#b7e4c7",
         date: "May 2025 - July 2025",
         points: [
-            "Provided support and guidance to residents during the summer session.",
-            "Volunteered in Missouri Summer Special Olympics.",
-            "Responded to emergencies and provided assistance to residents.",
-            "Collaborated with other staff members to ensure the safety and well-being of residents.",
+            "I supported the daily operations of university housing while ensuring a positive living environment for students and summer program participants.",
+            "I served as the first point of contact for residents by addressing concerns even late nights, facilitating room transitions, assisting with check-in and check-out procedures, and coordinating accommodations during the Missouri Special Olympics housing program.",
+            "I worked alongside Residence Life staff to coordinate housing logistics and provide exceptional resident support."
         ],
     },
     {
@@ -166,12 +162,11 @@ export const experiences = [
         company_name: "Truman State University",
         icon: oa,
         iconBg: "#b7e4c7",
-        date: "Jan 2023 - dec 2023",
+        date: "Jan 2023 - Dec 2023",
         points: [
-            "Managed correspondence, scheduled meetings, and maintained the calenders in the department.",
-            "Handled student inquiries and paperworks.",
-            "Maintained the department website and bulletin boards.",
-            "Provided technical support and coordinate with IT department.",
+            "I supported daily administrative operations while serving as a resource for students, faculty, and visitors during my time as an office assistant in the Computer Science Department. ",
+            "I organized departmental records, managed documentation, assisted students with administrative inquiries, and coordinated office operations to support faculty and staff activities.",
+            "My responsibilities focused on maintaining efficient departmental workflows and ensuring timely communication across multiple people."
         ],
     },
 ];
@@ -198,7 +193,7 @@ export const projects = [
     {
         iconUrl: research,
         theme: 'btn-back-yellow',
-        name: 'Lung and Colon Cancer Research',
+        name: 'Lung and Colon Cancer Detection Using Deep AI',
         description: 'A deep learning model used to train and test the LC25000 dataset and improved it to achieve 100% accuracy on lung and colon cancer detection.',
         link: 'https://www.mdpi.com/2072-6694/16/22/3879',
     },

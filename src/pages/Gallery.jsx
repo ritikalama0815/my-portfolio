@@ -263,7 +263,7 @@ export default function Gallery() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
-          <span className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
+          <span className="text-transparent bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text">
             Arts
           </span>
         </h1>
@@ -272,7 +272,7 @@ export default function Gallery() {
           <TextType
             text={['scroll · drag · click to expand', 'welcome to my art gallery']}
             as="p"
-            className="text-center text-base font-medium text-emerald-100 sm:text-lg"
+            className="text-base font-medium text-center text-emerald-100 sm:text-lg"
             typingSpeed={70}
             pauseDuration={1800}
             deletingSpeed={45}
@@ -284,18 +284,19 @@ export default function Gallery() {
           />
         </div>
 
-        <p className="mt-2 text-sm text-slate-400">Center an artwork and click to expand</p>
+        <p className="mt-2 text-sm text-slate-400">center an artwork and click to expand</p>
+        <p className="text-sm text-slate-500">This is what I do outside of coding and Comp Sci stuff.</p>
         <p className="text-sm text-slate-500">App: Procreate</p>
       </motion.header>
 
       <motion.div
-        className="relative mx-auto mt-8 w-full"
+        className="relative w-full mx-auto mt-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
       >
         <div
-          className="relative overflow-hidden rounded-2xl border border-white/15 bg-slate-900/60 p-1 shadow-inner ring-1 ring-emerald-500/20"
+          className="relative p-1 overflow-hidden border shadow-inner rounded-2xl border-white/15 bg-slate-900/60 ring-1 ring-emerald-500/20"
           style={{ height: 'min(68vh, 620px)' }}
         >
           <CircularGallery

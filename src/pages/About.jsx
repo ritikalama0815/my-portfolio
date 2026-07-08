@@ -11,7 +11,7 @@ const About = () => (
       <h1 className="text-3xl font-bold text-white sm:text-5xl">
         It's me,{' '}
         <span className="text-transparent bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text">
-          Ritika! (again)
+          Ritika!
         </span>
       </h1>
       <p className="mt-2 text-sm text-slate-400">I am fine with shorter forms of my name too! (Rit, Ri, Rika, etc.)</p>
@@ -36,7 +36,7 @@ const About = () => (
       <div className="mt-16">
         <h2 className="text-white subhead-text">Work Experience</h2>
         <p className="max-w-3xl mt-4 text-base text-slate-300">
-          I worked as Researcher, TA, and other assistant roles; they helped me shape my technical, professional soft skills:
+          I worked as Researcher, TA, and other assistant roles; they helped me shape my technical, professional, and soft skills.
         </p>
         <div className="mt-10 [&_.vertical-timeline-element-content]:!bg-white [&_.vertical-timeline-element-content]:!text-slate-800 [&_.vertical-timeline-element-content]:!shadow-lg">
           <VerticalTimeline>

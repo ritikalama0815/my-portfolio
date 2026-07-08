@@ -29,7 +29,7 @@ const Projects = () => (
           </h1>
         </div>
         <p className="max-w-md text-sm leading-relaxed text-slate-300 sm:text-base">
-          I did various projects in different domains like machine learning, full stack development, and data science.
+          I did various projects in different domains like machine learning, full stack development, and data science (More incoming).
         </p>
       </div>
 
