@@ -9,20 +9,17 @@ import {
   columbina,
   venti,
   cat,
-  makima,
-  evangelion,
   forest,
   father,
+  girl,
   illumi,
   maomao,
-  wall,
   room,
   blueberry,
   scaramouche,
   nahihi,
   flins,
-  mavuika,
-  frieren,
+  kagura
 } from '../assets/images';
 
 const ARTWORKS = [
@@ -39,28 +36,9 @@ const ARTWORKS = [
   { id: 2, title: 'Columbina', image: columbina, text: 'Columbina', description: '3rd of Fatui Harbingers', year: '2026', artist: 'Ritika Lama' },
   { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'sleeping', year: '2025', artist: 'Ritika Lama' },
   { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'He is a free-spirited bard.', year: '2026', artist: 'Ritika Lama' },
+  { id: 5, title: 'Forest', image: forest, text: 'Forest', description: 'Warm yet cold camp site', year: '2025', artist: 'Ritika Lama' },
   {
-    id: 5,
-    title: 'Kaworu Nagisa',
-    image: evangelion,
-    text: 'Kaworu Nagisa',
-    description:
-      'Kaworu Nagisa, the Fifth Child and seventeenth Angel, is akin to Rei Ayanami as a Seed of Life in a human body.',
-    year: '2025',
-    artist: 'Ritika Lama',
-  },
-  { id: 6, title: 'Forest', image: forest, text: 'Forest', description: 'Warm yet cold camp site', year: '2025', artist: 'Ritika Lama' },
-  {
-    id: 7,
-    title: 'Makima',
-    image: makima,
-    text: 'Makima',
-    description: "the Chief Cabinet Secretary's Personal Devil Hunter",
-    year: '2026',
-    artist: 'Ritika Lama',
-  },
-  {
-    id: 8,
+    id: 6,
     title: 'Illumi',
     image: illumi,
     text: 'Illumi',
@@ -69,9 +47,9 @@ const ARTWORKS = [
     year: '2025',
     artist: 'Ritika Lama',
   },
-  { id: 9, title: 'Arlecchino', image: father, text: 'Arlecchino', description: '4th of Fatui Harbingers', year: '2025', artist: 'Ritika Lama' },
+  { id: 7, title: 'Arlecchino', image: father, text: 'Arlecchino', description: '4th of Fatui Harbingers', year: '2025', artist: 'Ritika Lama' },
   {
-    id: 10,
+    id: 8,
     title: 'Mao Mao',
     image: maomao,
     text: 'Mao Mao',
@@ -81,16 +59,7 @@ const ARTWORKS = [
     artist: 'Ritika Lama',
   },
   {
-    id: 11,
-    title: 'Wall',
-    image: wall,
-    text: 'Wall',
-    description: 'Beyond the wall lies a world unknown.',
-    year: '2025',
-    artist: 'Ritika Lama',
-  },
-  {
-    id: 12,
+    id: 9,
     title: 'Flowery Room',
     image: room,
     text: 'Flowery Room',
@@ -99,7 +68,7 @@ const ARTWORKS = [
     artist: 'Ritika Lama',
   },
   {
-    id: 13,
+    id: 10,
     title: 'Blueberry',
     image: blueberry,
     text: 'Blueberry',
@@ -108,7 +77,7 @@ const ARTWORKS = [
     artist: 'Ritika Lama',
   },
   {
-    id: 14,
+    id: 11,
     title: 'Scaramouche',
     image: scaramouche,
     text: 'Scaramouche',
@@ -117,10 +86,10 @@ const ARTWORKS = [
     year: '2025',
     artist: 'Ritika Lama',
   },
-  { id: 15, title: 'Nahihi', image: nahihi, text: 'Nahihi', description: 'character portrait study.', year: '2026', artist: 'Ritika Lama' },
-  { id: 16, title: 'Flins', image: flins, text: 'Flins', description: 'a fae in charge of cemetry', year: '2026', artist: 'Ritika Lama' },
-  { id: 17, title: 'Mavuika', image: mavuika, text: 'Mavuika', description: 'character portrait study.', year: '2026', artist: 'Ritika Lama' },
-  { id: 18, title: 'Frieren', image: frieren, text: 'Frieren', description: 'elf mage', year: '2026', artist: 'Ritika Lama' },
+  { id: 12, title: 'Nahihi', image: nahihi, text: 'Nahihi', description: 'character portrait study.', year: '2026', artist: 'Ritika Lama' },
+  { id: 13, title: 'Flins', image: flins, text: 'Flins', description: 'a fae in charge of cemetry', year: '2026', artist: 'Ritika Lama' },
+  { id: 14, title: 'Kagura', image: kagura, text: 'Frieren', description: 'strongest female lead', year: '2026', artist: 'Ritika Lama' },
+  { id: 15, title: 'girl', image: girl, text: 'girl', description: 'girl', year: '2026', artist: 'ritika' },
 ];
 
 function GalleryModal({ artwork, onClose, onPrev, onNext }) {

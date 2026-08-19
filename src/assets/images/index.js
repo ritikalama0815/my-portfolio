@@ -7,33 +7,35 @@ import room from './f_room.JPG'
 import scaramouche from './scaramouce.JPG'
 import ai from './ai.png'
 import cat from './cat.png'
-import evangelion from './evangelion.png'
 import forest from './forest.png'
 import illumi from './illumi.png'
 import maomao from './maomao.png'
-import wall from './wall.png'
+import girl from './girl.png'
 import columbina from './columbina.png'
 import venti from './venti.png'
-import makima from './makima.png'
 import father from './father.png'
 import nahihi from './nahihi.png'
 import flins from './flins.png'
-import mavuika from './mavuika.png'
-import frieren from './frieren.png'
+import kagura from './kagura.png'
 
 export {
     hero,
     ai,
-    cat, nahihi, flins, mavuika, frieren,
-    evangelion,
+    cat, 
+    nahihi, 
+    flins, 
     forest,
     illumi,
     maomao,
-    wall,
-    ta, father,
+    ta, 
+    father,
     oa,
     ra,
+    girl,
     blueberry,
     room,
-    scaramouche, columbina, venti,makima
+    scaramouche, 
+    columbina, 
+    venti, 
+    kagura
 }
