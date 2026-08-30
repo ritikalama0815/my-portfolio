@@ -30,6 +30,10 @@ jobs:
       # Step 4: Build the project
       - name: Build the project
         run: npm run build
+      
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true
 
       # Step 5: Deploy to Vercel
       - name: Deploy to Vercel

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ExternalLink} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { projects } from '../constants';
 import IC from '../components/IC';
