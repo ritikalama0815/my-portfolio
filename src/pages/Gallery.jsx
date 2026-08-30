@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import CircularGallery from '../components/CircularGallery';
 import TextType from '../components/TextType';
 import GlitchPageLayout from '../components/GlitchPageLayout';
+import PixelSnow from '../components/PixelSnow';
+import { getCachedDisplayUrl, preloadGalleryImages, preloadGalleryNeighbors } from '../utils/imageCache';
 import {
   ai,
+  sandbina,
   columbina,
   venti,
   cat,
@@ -90,9 +93,15 @@ const ARTWORKS = [
   { id: 13, title: 'Flins', image: flins, text: 'Flins', description: 'a fae in charge of cemetry', year: '2026', artist: 'Ritika Lama' },
   { id: 14, title: 'Kagura', image: kagura, text: 'Frieren', description: 'strongest female lead', year: '2026', artist: 'Ritika Lama' },
   { id: 15, title: 'girl', image: girl, text: 'girl', description: 'girl', year: '2026', artist: 'ritika' },
+  { id: 16, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'Columbina and Sandrone', year: '2026', artist: 'ritika' },
 ];
 
 function GalleryModal({ artwork, onClose, onPrev, onNext }) {
+  const [imageSrc, setImageSrc] = useState(null);
+  const [imageLoading, setImageLoading] = useState(true);
+  const [loadProgress, setLoadProgress] = useState(0);
+  const [indeterminate, setIndeterminate] = useState(false);
+
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -107,19 +116,60 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
     };
   }, [onClose, onNext, onPrev]);
 
+  useEffect(() => {
+    let cancelled = false;
+    let indeterminateTimer;
+
+    setImageLoading(true);
+    setImageSrc(null);
+    setLoadProgress(0);
+    setIndeterminate(false);
+
+    indeterminateTimer = window.setTimeout(() => {
+      if (!cancelled) setIndeterminate(true);
+    }, 400);
+
+    getCachedDisplayUrl(artwork.image, 1400, {
+      onProgress: (value) => {
+        if (cancelled || value === null) return;
+        setIndeterminate(false);
+        setLoadProgress(value);
+      },
+    })
+      .then(({ url }) => {
+        if (!cancelled) {
+          setImageSrc(url);
+          setLoadProgress(100);
+          setImageLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setImageSrc(artwork.image);
+          setLoadProgress(100);
+          setImageLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(indeterminateTimer);
+    };
+  }, [artwork.image]);
+
   return (
     <motion.div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8"
+      className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto p-4 sm:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" aria-hidden />
 
       <motion.button
         type="button"
-        className="absolute z-10 p-3 text-white transition -translate-y-1/2 rounded-full left-2 sm:left-6 top-1/2 bg-white/10 ring-1 ring-white/20 backdrop-blur-md hover:bg-white/25 hover:scale-105"
+        className="absolute z-20 p-3 text-white transition -translate-y-1/2 rounded-full left-2 sm:left-6 top-1/2 bg-white/10 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20"
         onClick={(e) => {
           e.stopPropagation();
           onPrev();
@@ -133,7 +183,7 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
 
       <motion.button
         type="button"
-        className="absolute z-10 p-3 text-white transition -translate-y-1/2 rounded-full right-2 sm:right-6 top-1/2 bg-white/10 ring-1 ring-white/20 backdrop-blur-md hover:bg-white/25"
+        className="absolute z-20 p-3 text-white transition -translate-y-1/2 rounded-full right-2 sm:right-6 top-1/2 bg-white/10 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20"
         onClick={(e) => {
           e.stopPropagation();
           onNext();
@@ -146,56 +196,94 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
       </motion.button>
 
       <motion.article
-        className="relative z-10 flex w-full max-w-5xl max-h-[92vh] flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-violet-50 shadow-2xl ring-1 ring-white/60 md:flex-row"
+        className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/15"
         initial={{ opacity: 0, y: 32, scale: 0.94 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 24, scale: 0.96 }}
         transition={{ type: 'spring', stiffness: 320, damping: 28 }}
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="absolute inset-0 bg-black">
+          <PixelSnow
+            color="#ffffff"
+            flakeSize={0.01}
+            minFlakeSize={1.25}
+            pixelResolution={200}
+            speed={1.25}
+            density={0.3}
+            direction={125}
+            brightness={1}
+            depthFade={8}
+            farPlane={20}
+            gamma={0.4545}
+            variant="square"
+          />
+          <div className="absolute inset-0 bg-black/45" aria-hidden />
+        </div>
+
         <motion.button
           type="button"
-          className="absolute z-20 p-2 text-white transition rounded-full top-4 right-4 bg-slate-900/60 backdrop-blur-sm hover:bg-slate-900"
+          className="absolute top-4 right-4 z-20 rounded-full bg-white/10 p-2 text-white ring-1 ring-white/20 backdrop-blur-sm transition hover:bg-white/20"
           onClick={onClose}
           whileHover={{ scale: 1.08, rotate: 90 }}
           aria-label="Close"
         >
-          <X size={20} />
+          <X size={22} />
         </motion.button>
 
-        <motion.div
-          className="relative flex-1 min-h-[240px] bg-gradient-to-br from-violet-200/40 via-fuchsia-100/30 to-sky-100/40 md:min-h-0"
-          initial={{ opacity: 0, x: -12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.05 }}
-        >
-          <img
-            src={artwork.image}
-            alt={artwork.title}
-            className="h-full w-full max-h-[55vh] object-contain p-4 md:max-h-none"
-            decoding="async"
-          />
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-violet-900/10 via-transparent to-transparent" />
-        </motion.div>
+        <div className="relative z-10 flex max-h-[92vh] flex-col items-center overflow-y-auto px-6 py-8 text-center sm:px-10 sm:py-10">
+          <div className="relative flex min-h-[min(52vh,480px)] w-full max-w-xl items-center justify-center">
+            {imageLoading && (
+              <div
+                className="flex h-[min(52vh,480px)] w-full max-w-md flex-col items-center justify-center gap-4 rounded-sm bg-slate-900/70 px-6"
+                aria-live="polite"
+                aria-busy="true"
+              >
+                <div className="gallery-skeleton relative h-[min(36vh,320px)] w-full max-w-sm overflow-hidden rounded-sm bg-slate-800/90">
+                  <div className="gallery-skeleton-shimmer absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-14 w-14 animate-spin rounded-full border-2 border-slate-600 border-t-emerald-400" />
+                  </div>
+                </div>
 
-        <div className="flex flex-col justify-between flex-1 gap-4 p-6 sm:p-8 md:max-w-sm">
-          <div>
-            <motion.div
-              className="inline-flex items-center gap-2 px-3 py-1 mb-3 text-xs font-semibold tracking-wider uppercase rounded-full bg-violet-100 text-violet-700"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              {artwork.year}
-            </motion.div>
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">{artwork.title}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{artwork.description}</p>
+                <div className="w-full max-w-xs space-y-2">
+                  <div className="flex items-center justify-between text-xs text-slate-400">
+                    <span>Loading artwork</span>
+                    <span>{loadProgress}%</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-slate-700/80">
+                    <div
+                      className={`h-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 ${
+                        indeterminate ? 'gallery-progress-indeterminate w-1/3' : ''
+                      }`}
+                      style={indeterminate ? undefined : { width: `${loadProgress}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {imageSrc && !imageLoading && (
+              <motion.img
+                key={imageSrc}
+                src={imageSrc}
+                alt={artwork.title}
+                className="max-h-[min(52vh,480px)] w-auto max-w-full rounded-sm border-2 border-white object-contain drop-shadow-2xl"
+                decoding="async"
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            )}
           </div>
 
-          <div className="p-4 border shadow-sm rounded-xl border-violet-100 bg-white/80 backdrop-blur-sm">
-            <p className="text-xs font-medium tracking-wide uppercase text-violet-500">Artist</p>
-            <p className="mt-1 font-semibold text-slate-800">{artwork.artist}</p>
-          </div>
+          <h2 className="mt-6 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            {artwork.title} ({artwork.year})
+          </h2>
+
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-200 sm:text-base">
+            {artwork.description}
+          </p>
         </div>
       </motion.article>
     </motion.div>
@@ -209,6 +297,16 @@ export default function Gallery() {
     () => ARTWORKS.map(({ image, text }) => ({ image, text })),
     []
   );
+
+  const artworkUrls = useMemo(() => ARTWORKS.map((art) => art.image), []);
+
+  useEffect(() => {
+    preloadGalleryImages(artworkUrls);
+  }, [artworkUrls]);
+
+  useEffect(() => {
+    preloadGalleryNeighbors(artworkUrls, selectedIndex);
+  }, [selectedIndex, artworkUrls]);
 
   const selectedArtwork = selectedIndex !== null ? ARTWORKS[selectedIndex] : null;
 
@@ -225,7 +323,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <GlitchPageLayout fullWidth panelClassName="border-teal-500/20 bg-slate-950/88">
+    <GlitchPageLayout fullWidth>
       <motion.header
         className="text-center"
         initial={{ opacity: 0, y: -12 }}
@@ -260,25 +358,21 @@ export default function Gallery() {
 
       <motion.div
         className="relative w-full mx-auto mt-8"
+        style={{ height: 'min(68vh, 620px)' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
       >
-        <div
-          className="relative p-1 overflow-hidden border shadow-inner rounded-2xl border-white/15 bg-slate-900/60 ring-1 ring-emerald-500/20"
-          style={{ height: 'min(68vh, 620px)' }}
-        >
-          <CircularGallery
-            items={carouselItems}
-            bend={1}
-            textColor="#e2e8f0"
-            borderRadius={0.06}
-            scrollSpeed={2}
-            scrollEase={0.05}
-            className="rounded-[0.9rem]"
-            onItemClick={handleItemClick}
-          />
-        </div>
+        <CircularGallery
+          items={carouselItems}
+          bend={1}
+          textColor="#e2e8f0"
+          borderRadius={0.06}
+          scrollSpeed={2}
+          scrollEase={0.05}
+          className="rounded-2xl"
+          onItemClick={handleItemClick}
+        />
       </motion.div>
 
       <AnimatePresence>

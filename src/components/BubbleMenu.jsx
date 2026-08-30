@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const DEFAULT_ITEMS = [
   {
     label: 'home',
-    to: '/',
+    to: '/home',
     ariaLabel: 'Home',
     rotation: -8,
     hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' },

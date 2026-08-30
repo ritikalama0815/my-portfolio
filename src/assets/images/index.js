@@ -17,8 +17,10 @@ import father from './father.png'
 import nahihi from './nahihi.png'
 import flins from './flins.png'
 import kagura from './kagura.png'
+import sandbina from './sandbina.png'
 
 export {
+    sandbina,
     hero,
     ai,
     cat, 

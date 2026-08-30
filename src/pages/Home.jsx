@@ -66,7 +66,7 @@ const Home = () => {
         {currentStage && < Information currentStage={currentStage} />}
       </div>
       <Canvas
-        className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className="w-full h-screen bg-transparent"
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
@@ -98,7 +98,7 @@ const Home = () => {
         <img
           src={!isPlayingMusic ? soundoff : soundon}
           alt='sound'
-          className='object-contain w-20 h-20 cursor-pointer'
+          className="h-20 w-20 object-contain"
           onClick={()=> setIsPlayingMusic(!isPlayingMusic)}
           />
       </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,10 +7,13 @@
 :root {
   --blue-rgb: 237 245 255;
   --green-rgb: 125 161 35;
+  --vscode-font: "JetBrains Mono", "Cascadia Code", "Cascadia Mono", "Fira Code", "SF Mono", Menlo, Monaco,
+    Consolas, "Courier New", monospace;
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--vscode-font);
+  -webkit-font-smoothing: antialiased;
 }
 
 body:has(.card[data-color="blue"]:hover) {
@@ -27,15 +30,17 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .head-text {
-    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
+    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug;
+    font-family: var(--vscode-font);
   }
 
   .subhead-text {
-    @apply font-semibold sm:text-3xl text-xl relative font-poppins;
+    @apply font-semibold sm:text-3xl text-xl relative;
+    font-family: var(--vscode-font);
   }
 
-  .glitch-page .vertical-timeline::before {
-    background: rgb(97 220 163 / 35%);
+  .wave-page .vertical-timeline::before {
+    background: rgb(255 159 252 / 35%);
   }
 
   .blue-gradient_text {
@@ -189,4 +194,34 @@ body:has(.card[data-color="green"]:hover) {
   border: #fff;
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+}
+
+.gallery-skeleton-shimmer {
+  background: linear-gradient(
+    110deg,
+    rgba(30, 41, 59, 0.2) 8%,
+    rgba(71, 85, 105, 0.45) 18%,
+    rgba(30, 41, 59, 0.2) 33%
+  );
+  background-size: 200% 100%;
+  animation: gallery-shimmer 1.4s linear infinite;
+}
+
+.gallery-progress-indeterminate {
+  animation: gallery-progress-slide 1.2s ease-in-out infinite;
+}
+
+@keyframes gallery-shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes gallery-progress-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
 }

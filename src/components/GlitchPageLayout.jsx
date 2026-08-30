@@ -1,23 +1,33 @@
-import LetterGlitch from './LetterGlitch';
+import GradientWaves from './GradientWaves';
 
-const GLITCH_PROPS = {
-  glitchSpeed: 50,
-  centerVignette: true,
-  outerVignette: false,
-  smooth: true,
-  colors: ['#2b4539', '#61dca3', '#61b3dc'],
+const WAVE_PROPS = {
+  horizonColor: '#5227FF',
+  waveColor: '#FF9FFC',
+  crestColor: '#FFFFFF',
+  speed: 0.4,
+  amplitude: 2.5,
+  waveScale: 0.6,
+  waveRatio: 0.9,
+  swell: 35,
+  turbulence: 20,
+  tilt: 1.11,
+  zoom: 1.0,
+  height: 5.5,
+  fogDepth: 15,
+  detail: 'medium',
+  brightness: 1.0,
+  opacity: 1.0,
+  mouseInteraction: true,
+  parallaxStrength: 0.5,
+  grain: true,
+  grainIntensity: 0.05,
 };
 
-export default function GlitchPageLayout({
-  children,
-  className = '',
-  panelClassName = '',
-  fullWidth = false,
-}) {
+export default function GlitchPageLayout({ children, className = '', fullWidth = false }) {
   return (
-    <div className={`glitch-page relative min-h-screen overflow-x-hidden ${className}`}>
-      <div className="fixed inset-0 z-0" aria-hidden>
-        <LetterGlitch {...GLITCH_PROPS} showCenterVignette showOuterVignette={false} />
+    <div className={`wave-page relative min-h-screen overflow-x-hidden ${className}`}>
+      <div className="fixed inset-0 z-0 bg-black" aria-hidden>
+        <GradientWaves {...WAVE_PROPS} />
       </div>
 
       <div
@@ -25,11 +35,7 @@ export default function GlitchPageLayout({
           fullWidth ? 'max-w-[1600px]' : 'max-w-5xl'
         }`}
       >
-        <div
-          className={`rounded-3xl border border-white/10 bg-slate-950/82 shadow-2xl shadow-black/40 backdrop-blur-xl ${panelClassName}`}
-        >
-          <div className="px-5 py-8 sm:px-10 sm:py-12">{children}</div>
-        </div>
+        {children}
       </div>
     </div>
   );

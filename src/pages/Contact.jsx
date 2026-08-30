@@ -60,7 +60,7 @@ const Contact = () => {
   };
 
   return (
-    <GlitchPageLayout fullWidth panelClassName="border-cyan-500/20">
+    <GlitchPageLayout fullWidth>
       {alert.show && <Alert {...alert} />}
       <motion.div
         className="flex flex-col gap-10 lg:flex-row lg:gap-12"
@@ -128,7 +128,7 @@ const Contact = () => {
           </form>
         </div>
 
-        <div className="h-[400px] w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 lg:h-auto lg:min-h-[480px] lg:w-[42%]">
+        <div className="h-[400px] w-full shrink-0 overflow-hidden rounded-2xl lg:h-auto lg:min-h-[480px] lg:w-[42%]">
           <Canvas camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}>
             <directionalLight intensity={2.5} position={[0, 0, 1]} />
             <ambientLight intensity={0.5} />
