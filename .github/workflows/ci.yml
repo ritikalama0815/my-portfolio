@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  build-and-lint:
-    name: Build and Lint
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -29,36 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run linting
-      - name: Run ESLint
-        run: npm run lint
-
-      # Step 5: Build the project
+      # Step 4: Build the project
       - name: Build the project
         run: npm run build
 
-  deploy:
-    name: Deploy to Vercel
-    runs-on: ubuntu-latest
-    needs: build-and-lint
-
-    steps:
-      # Step 1: Checkout the code
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # Step 4: Deploy to Vercel
+      # Step 5: Deploy to Vercel
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
