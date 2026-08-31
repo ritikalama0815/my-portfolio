@@ -14,7 +14,7 @@ const About = () => (
           Ritika!
         </span>
       </h1>
-      <p className="mt-2 text-sm text-slate-400">I am fine with shorter forms of my name too! (Rit, Ri, Rika, etc.)</p>
+      <p className="mt-2 text-sm text-slate-400">I am fine with shorter forms of my name too!</p>
 
       <p className="max-w-3xl mt-6 text-base leading-relaxed text-slate-300">
         I earned my Bachelor's Degree from Truman State University, majoring in Computer Science with a Data Science

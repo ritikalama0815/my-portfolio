@@ -40,6 +40,9 @@ import game2 from './game2.svg'
 import group from './group.svg'
 import money from './money.svg'
 import prokaryotic from './prokaryotic.svg'
+import PostgreSQL from './PostgreSQL.svg'
+import angular from './angular.svg'
+import aws from './aws.svg'
 
 
 export {
@@ -79,4 +82,7 @@ export {
     contact,
     soundon,
     soundoff,
+    PostgreSQL,
+    angular,
+    aws
 }

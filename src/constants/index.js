@@ -25,7 +25,7 @@ import {
     person,
     research, ai_interviewer,
     inventory,
-    plawnet, emotion, forestfire, assistant, dna, game2, group, money, prokaryotic
+    plawnet, emotion, forestfire, assistant, dna, game2, group, money, prokaryotic, angular, PostgreSQL, aws
 } from "../assets/icons";
 
 export const skills = [
@@ -33,6 +33,21 @@ export const skills = [
         imageUrl: css,
         name: "CSS",
         type: "Frontend",
+    },
+    {
+        imageUrl: angular,
+        name: "Angular",
+        type: "Frontend",
+    },
+    {
+        imageUrl: aws,
+        name: "AWS",
+        type: "Cloud computing",
+    },
+    {
+        imageUrl: PostgreSQL,
+        name: "PostgreSQL",
+        type: "Database",
     },
     {
         imageUrl: express,
@@ -83,11 +98,6 @@ export const skills = [
         imageUrl: react,
         name: "React",
         type: "Frontend",
-    },
-    {
-        imageUrl: vscode,
-        name: "Visual Studio Code",
-        type: "Development Tool",
     },
     {
         imageUrl: tailwindcss,
