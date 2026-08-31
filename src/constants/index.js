@@ -233,14 +233,14 @@ export const projects = [
         theme: 'btn-back-yellow',
         name: 'My Portfolio',
         description: 'You\'re currently looking at this project. It sums up my skills and projects while showcasing the 3D rendering of objects.',
-        link: 'https://github.com/ritikalama0815/3d-objects',
+        link: 'https://github.com/ritikalama0815/my-portfolio',
     },
     {
         iconUrl: money,
         theme: 'btn-back-red',
         name: 'Currency Converter',
-        description: 'A web application that allows users to convert currency from one to another using real-time exchange rates (this is java and API practice project).',
-        link: 'https://github.com/ritikalama0815/curr-converter',
+        description: 'A web application that allows users to convert currency from one to another using real-time exchange rates (this is API practice project).',
+        link: 'https://github.com/ritikalama0815/currency-converter',
     },
     {
         iconUrl: dna,
