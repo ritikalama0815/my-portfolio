@@ -11,7 +11,7 @@ const IC = () => {
         gap: '7px',
       }}
     >
-      <div className="flex gap-2">
+      <div className="flex gap-2 text-2xl">
         <a
           href="https://github.com/ritikalama0815"
           target="_blank"
@@ -31,21 +31,14 @@ const IC = () => {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/ritika-lama-b2605b2a4/"
+          href="www.linkedin.com/in/ritikalama0815"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black transition-colors duration-300 hover:text-blue-500"
+          className="text-black transition-colors duration-300 hover:text-blue-300"
         >
-          linkedIn |
+          linkedIn 
         </a>
-        <a
-          href="https://drive.google.com/file/d/1VngkQw0ru6U7RXauTR1y5gkzQY-iGo4i/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black transition-colors duration-300 hover:text-purple-500"
-        >
-          resume
-        </a>
+
       </div>
     </section>
   );

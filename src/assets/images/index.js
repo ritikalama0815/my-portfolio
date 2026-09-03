@@ -18,11 +18,13 @@ import nahihi from './nahihi.png'
 import flins from './flins.png'
 import kagura from './kagura.png'
 import sandbina from './sandbina.png'
+import assistant from './assistant.png'
 
 export {
     sandbina,
     hero,
     ai,
+    assistant,
     cat, 
     nahihi, 
     flins, 

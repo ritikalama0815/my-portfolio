@@ -28,8 +28,8 @@ const Projects = () => (
             Projects & Research
           </h1>
         </div>
-        <p className="max-w-md text-sm leading-relaxed text-slate-300 sm:text-base">
-          I did various projects in different domains like machine learning, full stack development, and data science (More incoming).
+        <p className="max-w-md text-sm leading-relaxed text-slate-100 sm:text-base">
+          I did various projects in different domains: full stack development, maching learning, and data science (mobile app development incoming).
         </p>
       </div>
 
@@ -47,22 +47,15 @@ const Projects = () => (
               whileHover={{ y: -6 }}
               className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${accent} p-[1px] ring-1 backdrop-blur-sm transition-shadow hover:shadow-lg hover:shadow-emerald-500/10`}
             >
-              <div className="flex flex-col h-full p-5 rounded-2xl bg-slate-900/90 sm:p-6">
+              <div className="flex flex-col h-full p-5 rounded-2xl bg-slate-800/90 sm:p-6">
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-center justify-center transition h-14 w-14 shrink-0 rounded-xl bg-white/10 ring-1 ring-white/15 backdrop-blur-md group-hover:scale-105">
-                    <img
-                      src={project.iconUrl}
-                      alt=""
-                      className="object-contain w-8 h-8"
-                    />
-                  </div>
                   <span className="rounded-full bg-white/5 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-slate-400 ring-1 ring-white/10">
                     {index + 1 < 10 ? `0${index + 1}` : index + 1}
                   </span>
                 </div>
 
                 <h3 className="text-lg font-semibold text-white sm:text-xl">{project.name}</h3>
-                <p className="flex-1 mt-2 text-sm leading-relaxed text-slate-300">{project.description}</p>
+                <p className="flex-1 mt-2 text-sm leading-relaxed text-gray-100">{project.description}</p>
 
                 <div className="pt-4 mt-5 border-t border-white/10">
                   {hasLink ? (
@@ -70,7 +63,7 @@ const Projects = () => (
                       to={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold transition text-emerald-300 hover:text-emerald-200"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-pink-300 transition hover:text-blue-300"
                     >
                       View project
                       <ExternalLink className="w-4 h-4" />

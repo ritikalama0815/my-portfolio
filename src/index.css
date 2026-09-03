@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@200,200..900&family=VT323&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,7 @@
 :root {
   --blue-rgb: 237 245 255;
   --green-rgb: 125 161 35;
-  --vscode-font: "JetBrains Mono", "Cascadia Code", "Cascadia Mono", "Fira Code", "SF Mono", Menlo, Monaco,
-    Consolas, "Courier New", monospace;
+  --vscode-font: "VT323", monospace;
 }
 
 body {
@@ -30,12 +29,12 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .head-text {
-    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug;
+    @apply text-3xl font-semibold sm:text-5xl sm:leading-snug;
     font-family: var(--vscode-font);
   }
 
   .subhead-text {
-    @apply font-semibold sm:text-3xl text-xl relative;
+    @apply relative text-xl font-semibold sm:text-3xl;
     font-family: var(--vscode-font);
   }
 
@@ -60,7 +59,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-50 right-0 left-0;
+    @apply absolute top-0 left-0 right-0 z-50 flex items-center justify-between max-w-5xl px-8 py-4 mx-auto bg-transparent sm:px-16;
   }
 
   /* Bubble menu — reserve top space on content pages */
@@ -69,15 +68,15 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .footer {
-    @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
+    @apply flex flex-col max-w-5xl px-8 pb-6 mx-auto sm:px-16 gap-7;
   }
 
   .footer-container {
-    @apply flex flex-wrap gap-7 items-center justify-between;
+    @apply flex flex-wrap items-center justify-between gap-7;
   }
 
   .info-box {
-    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl neo-brutalism-blue pt-4 pb-12 px-8;
+    @apply relative flex flex-col max-w-2xl gap-3 px-8 pt-4 pb-12 mx-5 text-white neo-brutalism-blue;
   }
 
   .neo-btn {
@@ -85,11 +84,11 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta {
-    @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
+    @apply flex flex-col items-center w-full mt-8 md:flex-row sm:mt-16 gap-7;
   }
 
   .cta-text {
-    @apply text-black-500 font-extrabold flex-1 text-3xl max-md:text-center;
+    @apply flex-1 text-3xl font-extrabold text-black-500 max-md:text-center;
   }
 }
 
@@ -162,7 +161,7 @@ body:has(.card[data-color="green"]:hover) {
   z-index: 1;
   width: inherit;
   height: inherit;
-  background-color: #ffffff33;
+  background-color: #ffffff76;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   transition: 250ms;

@@ -48,14 +48,14 @@ const renderContent = {
   ),
   2: (
     <InformationBox
-      text="this section includes the skills I learned and experiences I have gathered working in various places." //text for stage 2
+      text="This section is all about me" //text for stage 2
       link="/about"
       btnText="click here for more "
     />
   ),
   3: (
     <InformationBox
-      text="I have done many projects and some influential researches in my college life. more here⬇" //text for stage 2
+      text="This section is about my projects." //text for stage 2
       link="/projects"
       btnText="more "
     />
