@@ -1,6 +1,5 @@
-import {ta, oa, ra } from "../assets/images";
+import {ta, oa, ra, assistant} from "../assets/images";
 import {
-    contact,
     css,
     express,
     git,
@@ -18,17 +17,25 @@ import {
     c1,
     react,
     python,
-    vscode,
-    tailwindcss,
-    book,
-    game,
-    person,
-    research, ai_interviewer,
-    inventory,
-    plawnet, emotion, forestfire, assistant, dna, game2, group, money, prokaryotic, angular, PostgreSQL, aws
+    tailwindcss, angular, PostgreSQL, aws, docker, bootstrap, socket
 } from "../assets/icons";
 
 export const skills = [
+    {
+        imageUrl: docker,
+        name: "Docker",
+        type: "Containerization",
+    },
+    {
+        imageUrl: bootstrap,
+        name: "Bootstrap",
+        type: "Frontend",
+    },
+    {
+        imageUrl: socket,
+        name: "Socket.io",
+        type: "Backend/Real time communication",
+    },
     {
         imageUrl: css,
         name: "CSS",
@@ -181,121 +188,101 @@ export const experiences = [
     },
 ];
 
-export const socialLinks = [
-    {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contact',
-    },
-    {
-        name: 'GitHub',
-        iconUrl: github,
-        link: 'https://github.com/ritikalama0815',
-    },
-    {
-        name: 'LinkedIn',
-        iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/ritika-lama-b2605b2a4/',
-    }
-];
-
 export const projects = [
     {
-        iconUrl: research,
         theme: 'btn-back-yellow',
-        name: 'Lung and Colon Cancer Detection Using Deep AI',
-        description: 'A deep learning model used to train and test the LC25000 dataset and improved it to achieve 100% accuracy on lung and colon cancer detection.',
-        link: 'https://www.mdpi.com/2072-6694/16/22/3879',
+        name: 'Collaborative Code Editor',
+        description: 'A full-stack application that allows multiple users to collaborate on code in real-time python code execution. Tech Stack: React, Node.js, Express, Socket.io, Docker, Bootstrap',
+        link: 'https://github.com/ritikalama0815/collaborative-code-editor',
     },
     {
-        iconUrl: inventory,
+        theme: 'btn-back-blue',
+        name: 'CoLab',
+        description: 'A webapp that allows to track how much each student contributed in a group assignment. This is a Hackathon project for theme "AI to solve student\'s problem" (won Special Mention in Developer\'s category). Tech: React, TypeScript, Supabase, TailwindCSS, Gemini API',
+        link: 'https://github.com/ritikalama0815/CoLab',
+    },
+    {
         theme: 'btn-back-red',
         name: 'Inventory Management System',
         description: 'A web application that helps users, specifically U&I services at Truman State University to manage and keep track of the items in the inventory.',
         link: 'https://github.com/shibampokerail/InventoryManagementSystem',
     },
     {
-        iconUrl: forestfire,
-        theme: 'btn-back-red',
-        name: 'Wildfire Prediction',
-        description: 'A deep learning model used to predict the wildfire based on satellite imagery utilizing EfficientNet-b0 backbone',
-        link: 'https://github.com/ritikalama0815/wildfire-detection',
-    },
-    {
-        iconUrl: group,
-        theme: 'btn-back-blue',
-        name: 'CoLab',
-        description: 'A webapp that allows to track how much each student contributed in a group assignment. This is a Hackathon project for theme "AI to solve student\'s problem" (won Special Mention in Developer\'s category).',
-        link: 'https://github.com/ritikalama0815/CoLab',
-    },
-    {
-        iconUrl: person,
         theme: 'btn-back-yellow',
         name: 'My Portfolio',
         description: 'You\'re currently looking at this project. It sums up my skills and projects while showcasing the 3D rendering of objects.',
         link: 'https://github.com/ritikalama0815/my-portfolio',
     },
     {
-        iconUrl: money,
         theme: 'btn-back-red',
         name: 'Currency Converter',
-        description: 'A web application that allows users to convert currency from one to another using real-time exchange rates (this is API practice project).',
+        description: 'A GUI that allows users to convert currency from one to another using real-time exchange rates. Tech Stack: Python, Requests',
         link: 'https://github.com/ritikalama0815/currency-converter',
     },
     {
-        iconUrl: dna,
+        theme: 'btn-back-green',
+        name: 'My Own Tamagotchi',
+        description: 'A web application that allows users to take care of their own virtual pet and keep it alive by feeding it. Tech Stack: HTML, CSS, JavaScript, Electron',
+        link: 'https://github.com/ritikalama0815/your-tamagotchi',
+    },
+    {
+        theme: 'btn-back-yellow',
+        name: 'Vintage Photo Booth',
+        description: 'A web application that allows users to take photos with vintage filters and download them. Tech Stack: React, CSS, TypeScript',
+        link: 'https://github.com/ritikalama0815/vintage-photo-booth',
+    },
+    {
+        theme: 'btn-back-yellow',
+        name: 'GitHub Architecture Analyzer',
+        description: 'A web application that allows users to analyze the architecture of a GitHub repository and visualize it in a graph. Tech: Angular, Nest.js, TypeScript',
+        link: 'https://github.com/ritikalama0815/github-architecture-analyzer',
+    },
+    {
+        theme: 'btn-back-yellow',
+        name: 'File compression',
+        description: 'An implementation of Huffman coding for file compression. Tech: C++',
+        link: 'https://github.com/ritikalama0815/file-compression-via-huffman',
+    },
+    {
+        theme: 'btn-back-yellow',
+        name: 'Lung and Colon Cancer Detection Using Deep AI',
+        description: 'A deep learning model used to train and test the LC25000 dataset and improved it to achieve 100% accuracy on lung and colon cancer detection. Tech: Python, Pytorch, Latex',
+        link: 'https://www.mdpi.com/2072-6694/16/22/3879',
+    },
+    {
+        theme: 'btn-back-red',
+        name: 'Wildfire Prediction',
+        description: 'A deep learning model used to predict the wildfire based on satellite imagery utilizing EfficientNet-b0 backbone. Tech: Python, Pytorch, Latex',
+        link: 'https://github.com/ritikalama0815/wildfire-detection',
+    },
+    {
         theme: 'btn-back-blue',
         name: 'Bioinformatics Sequence Analysis',
-        description: 'This project focuses on analysis of DNA and protein sequences to calculate transversion ratio and transmembrane region predictor.',
+        description: 'This project focuses on analysis of DNA and protein sequences to calculate transversion ratio and transmembrane region predictor. Tech: Python',
         link: 'https://github.com/ritikalama0815/bioinformatics',
     },
     {
-        iconUrl: plawnet,
         theme: 'btn-back-red',
         name: 'Plawnet',
-        description: 'An e-commerce application for buying and selling of sustainable products. Hackathon project on theme "Sustainability" (won 1st place in beginner category).',
+        description: 'An e-commerce application for buying and selling of sustainable products. Hackathon project on theme "Sustainability" (won 1st place in beginner category). Tech: React, Node.js, Express, MongoDB',
         link: 'https://github.com/ritikalama0815/Plawnet_truhacks',
     },
     {
-        iconUrl: ai_interviewer,
-        theme: 'btn-back-pink',
-        name: 'AI Interviewer',
-        description: 'A web application that helps users to prepare for the interview in various tech companies and in various positions and giving them feedback based on their answers.',
-        link: 'https://github.com/ritikalama0815/interview-prep',
-    },
-    {
-        iconUrl: game,
-        theme: 'btn-back-green',
-        name: 'Arena Game',
-        description: 'A simple web game that allows user to move freely within the arena to collect some "coins" that helps users to get the points',
-        link: 'https://github.com/ritikalama0815/arena-game',
-    },
-    {
-        iconUrl: emotion,
         theme: 'btn-back-black',
         name: 'Emotion Detection',
-        description: 'A website that detects the emotion of a user based on their facial expression and gives them the feedback.',
+        description: 'A website that detects the emotion of a user based on their facial expression and gives them the feedback. Tech: Python, Flask, React (for frontend)',
         link: 'https://github.com/ritikalama0815/CS480---Final-Project',
     }, 
     {
-        iconUrl: prokaryotic,
         theme: 'btn-back-blue',
         name: 'Prokaryotic Promoter Finder',
-        description: 'This project focuses on finding the promoter region in the prokaryotic DNA sequence.',
+        description: 'This project focuses on finding the promoter region in the prokaryotic DNA sequence. Tech: Python',
         link: 'https://github.com/ritikalama0815/prokaryotic-promoter-finder',
     },
     {
-        iconUrl: game2,
         theme: 'btn-back-blue',
         name: 'Analysis of Player\'s Behavior',
-        description: 'This project examines how player activity and engagement relate to in-game spending (one of my data science projects).',
+        description: 'This project examines how player activity and engagement relate to in-game spending (one of my data science projects). Tech: R, Linear Regression, CART, PCA',
         link: 'https://github.com/ritikalama0815/Analysis-of-Player-s-Behavior',
-    },
-    {
-        iconUrl: book,
-        theme: 'btn-back-blue',
-        name: 'Recipe Book',
-        description: 'A book that has recipes of everything users ask for.',
-        link: 'https://github.com/ritikalama0815/Recipe',
-    },
+    }
 ];

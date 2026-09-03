@@ -10,13 +10,13 @@ const About = () => (
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
       <h1 className="text-3xl font-bold text-white sm:text-5xl">
         It's me,{' '}
-        <span className="text-transparent bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text">
+        <span className="text-transparent bg-gradient-to-r from-orange-300 via-yellow-300 to-teal-300 bg-clip-text">
           Ritika!
         </span>
       </h1>
-      <p className="mt-2 text-sm text-slate-400">I am fine with shorter forms of my name too!</p>
+      <p className="mt-2 text-gray-100 text-md">I am fine with shorter forms of my name too!</p>
 
-      <p className="max-w-3xl mt-6 text-base leading-relaxed text-slate-300">
+      <p className="max-w-3xl mt-6 text-xl leading-relaxed text-gray-100">
         I earned my Bachelor's Degree from Truman State University, majoring in Computer Science with a Data Science
         minor. Below are languages, frameworks, databases, and tools I have experience with.
       </p>
@@ -34,11 +34,11 @@ const About = () => (
       </div>
 
       <div className="mt-16">
-        <h2 className="text-white subhead-text">Work Experience</h2>
-        <p className="max-w-3xl mt-4 text-base text-slate-300">
+        <h2 className="text-white subhead-text">Experience</h2>
+        <p className="max-w-3xl mt-4 text-base text-gray-100">
           I worked as Researcher, TA, and other assistant roles; they helped me shape my technical, professional, and soft skills.
         </p>
-        <div className="mt-10 [&_.vertical-timeline-element-content]:!bg-white [&_.vertical-timeline-element-content]:!text-slate-800 [&_.vertical-timeline-element-content]:!shadow-lg">
+        <div className="mt-10 [&_.vertical-timeline-element-content]:!bg-gray-100 [&_.vertical-timeline-element-content]:!text-slate-800 [&_.vertical-timeline-element-content]:!shadow-lg">
           <VerticalTimeline>
             {experiences.map((experience) => (
               <VerticalTimelineElement
@@ -50,7 +50,7 @@ const About = () => (
                     <img
                       src={experience.icon}
                       alt={experience.company_name}
-                      className="h-[60%] w-[60%] object-contain"
+                      className="object-contain w-full h-full rounded-full"
                     />
                   </div>
                 }

@@ -67,21 +67,21 @@ const Contact = () => {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex min-w-0 flex-1 flex-col">
+        <div className="flex flex-col flex-1 min-w-0">
           <h1 className="text-3xl font-bold text-white sm:text-5xl">
             Contact{' '}
-            <span className="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">Me</span>
+            <span className="text-transparent bg-gradient-to-r from-orange-300 via-yellow-300 to-teal-300 bg-clip-text">Me</span>
           </h1>
-          <p className="mt-3 text-slate-300">Have a question or want to collaborate? Send a message.</p>
+          <p className="mt-3 text-gray-100">Have a question or want to collaborate? Send a message.</p>
 
-          <form className="mt-10 flex w-full flex-col gap-6" onSubmit={submit} ref={formRef}>
+          <form className="flex flex-col w-full gap-6 mt-10" onSubmit={submit} ref={formRef}>
             <label className="text-lg font-semibold text-slate-200">
               Your Name
               <input
                 type="text"
                 name="name"
                 className="input mt-2 !bg-white/95 !text-slate-900"
-                placeholder="Your Name"
+                placeholder="Enter Your Name"
                 value={form.name}
                 onChange={changes}
                 onFocus={focus}
@@ -94,7 +94,7 @@ const Contact = () => {
                 type="email"
                 name="email"
                 className="input mt-2 !bg-white/95 !text-slate-900"
-                placeholder="Your Email"
+                placeholder="Enter Your Email"
                 value={form.email}
                 required
                 onChange={changes}
@@ -107,7 +107,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 className="textarea mt-2 !bg-white/95 !text-slate-900"
-                placeholder="Message.."
+                placeholder="Type Something..."
                 value={form.message}
                 rows={8}
                 required
