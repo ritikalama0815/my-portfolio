@@ -6,7 +6,6 @@ import {
     github,
     html,
     javascript,
-    linkedin,
     mongodb,
     java,
     sql,
@@ -17,28 +16,23 @@ import {
     c1,
     react,
     python,
-    tailwindcss, angular, PostgreSQL, aws, docker, bootstrap, socket
+    cicd,
+    tailwindcss, 
+    angular, 
+    PostgreSQL,
+    aws, 
+    docker, 
+    bootstrap, 
+    socket,
+    electron, 
+    typescript, 
+    dotnet
 } from "../assets/icons";
 
 export const skills = [
     {
-        imageUrl: docker,
-        name: "Docker",
-        type: "Containerization",
-    },
-    {
-        imageUrl: bootstrap,
-        name: "Bootstrap",
-        type: "Frontend",
-    },
-    {
-        imageUrl: socket,
-        name: "Socket.io",
-        type: "Backend/Real time communication",
-    },
-    {
-        imageUrl: css,
-        name: "CSS",
+        imageUrl: react,
+        name: "React",
         type: "Frontend",
     },
     {
@@ -47,14 +41,39 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: aws,
-        name: "AWS",
-        type: "Cloud computing",
+        imageUrl: html,
+        name: "HTML",
+        type: "Frontend",
     },
     {
-        imageUrl: PostgreSQL,
-        name: "PostgreSQL",
-        type: "Database",
+        imageUrl: css,
+        name: "CSS",
+        type: "Frontend",
+    },
+    {
+        imageUrl: tailwindcss,
+        name: "Tailwind CSS",
+        type: "Frontend",
+    },
+    {
+        imageUrl: bootstrap,
+        name: "Bootstrap",
+        type: "Frontend",
+    },
+    {
+        imageUrl: dotnet,
+        name: ".NET",
+        type: "Backend",
+    },
+    {
+        imageUrl: javascript,
+        name: "JavaScript",
+        type: "Frontend/Backend",
+    },
+    {
+        imageUrl: typescript,
+        name: "Typescript",
+        type: "Frontend",
     },
     {
         imageUrl: express,
@@ -63,52 +82,12 @@ export const skills = [
     },
     {
         imageUrl: c1,
-        name: "C",
+        name: "C#",
         type: "Development",
     },
     {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
-    },
-    {
-        imageUrl: github,
-        name: "GitHub",
-        type: "Version Control",
-    },
-    {
-        imageUrl: html,
-        name: "HTML",
-        type: "Frontend",
-    },
-    {
-        imageUrl: javascript,
-        name: "JavaScript",
-        type: "Frontend",
-    },
-    {
-        imageUrl: mongodb,
-        name: "MongoDB",
-        type: "Database",
-    },
-    {
-        imageUrl: nextjs,
-        name: "Next.js",
-        type: "Frontend",
-    },
-    {
-        imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
-    },
-    {
-        imageUrl: react,
-        name: "React",
-        type: "Frontend",
-    },
-    {
-        imageUrl: tailwindcss,
-        name: "Tailwind CSS",
+        imageUrl: c,
+        name: "C++/C",
         type: "Frontend",
     },
     {
@@ -121,15 +100,67 @@ export const skills = [
         name: "Java",
         type: "Development",
     },
+     {
+        imageUrl: nextjs,
+        name: "Next.js",
+        type: "Frontend",
+    },
+    {
+        imageUrl: nodejs,
+        name: "Node.js",
+        type: "Backend",
+    },  
+    {
+        imageUrl: socket,
+        name: "Socket.io",
+        type: "Backend/Real time communication",
+    },
+    {
+        imageUrl: cicd,
+        name: "CI/CD",
+        type: "Continuous Integration/Continuous Deployment",
+    },
+    
+    {
+        imageUrl: aws,
+        name: "AWS",
+        type: "Cloud computing",
+    },
+    {
+        imageUrl: PostgreSQL,
+        name: "PostgreSQL",
+        type: "Database",
+    },
+    {
+        imageUrl: mongodb,
+        name: "MongoDB",
+        type: "Database",
+    },
     {
         imageUrl: sql,
         name: "SQL",
         type: "Database",
     },
     {
-        imageUrl: c,
-        name: "C++/C",
-        type: "Frontend",
+        imageUrl: git,
+        name: "Git",
+        type: "Version Control",
+    },
+    {
+        imageUrl: github,
+        name: "GitHub",
+        type: "Version Control",
+    },
+    
+    {
+        imageUrl: electron,
+        name: "Electron",
+        type: "Frontend GUI",
+    },
+    {
+        imageUrl: docker,
+        name: "Docker",
+        type: "Containerization",
     },
     {
         imageUrl: r,
@@ -143,8 +174,7 @@ export const experiences = [
         title: "Machine Learning Researcher",
         company_name: "Computer Science Department",
         icon: ra,
-        iconBg: "#accbe1",
-        date: "Novemver 2023 - May 2026",
+        date: "Novemvber 2023 - May 2026",
         points: [
             "I designed and implemented deep learning solutions for applied research projects and developed high-performing (high accuracy + low computational costs) neural networks while contributing to research publications and experimental studies.",
             "I build machine learning models using Python and PyTorch, design experiments, preprocess large datasets, tune hyperparameters, and evaluate model performance across multiple architectures.",
@@ -154,7 +184,6 @@ export const experiences = [
         title: "Teacher's Assistant",
         company_name: "Truman State University",
         icon: ta,
-        iconBg: "#fbc3bc",
         date: "Jan 2023 - May 2026",
         points: [
             "I support students in developing strong programming foundations and work closely with faculty to conduct lab sessions and provide academic support. ",
@@ -166,7 +195,6 @@ export const experiences = [
         title: "Resident Assistant",
         company_name: "Truman State University",
         icon: assistant,
-        iconBg: "#b7e4c7",
         date: "May 2025 - July 2025",
         points: [
             "I supported the daily operations of university housing while ensuring a positive living environment for students and summer program participants.",
@@ -178,7 +206,6 @@ export const experiences = [
         title: "Office Assistant",
         company_name: "Truman State University",
         icon: oa,
-        iconBg: "#b7e4c7",
         date: "Jan 2023 - Dec 2023",
         points: [
             "I supported daily administrative operations while serving as a resource for students, faculty, and visitors during my time as an office assistant in the Computer Science Department. ",

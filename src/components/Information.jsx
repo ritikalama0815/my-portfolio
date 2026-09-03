@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { arrow } from '../assets/icons';
 
 const InformationBox = ({ text, link, btnText }) => (
   <div className="info-box">
@@ -25,7 +24,6 @@ const InformationBox = ({ text, link, btnText }) => (
         gap: '0.75rem'
       }}>
       {btnText}
-      <img src={arrow} className='object-contain w-4 h-4'/>
     </Link>
   </div>
 );

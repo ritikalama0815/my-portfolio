@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 
 const BOOT_LINES = [
   'ritika@portfolio:~$ ./boot.sh',
+  'detecting users... ok',
+  'authenticating users... ok',
   'loading assets... ok',
-  'loading 3d island... ok',
   'welcome to my portfolio',
 ];
 
@@ -42,21 +43,21 @@ const Landing = () => {
   });
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-black px-4 py-16">
+    <div className="relative flex items-center justify-center min-h-screen px-4 py-16 bg-black">
       <motion.div
         className="w-full max-w-2xl rounded-xl border border-white/10 bg-[#0d1117] shadow-2xl shadow-purple-900/20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
           <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
           <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
           <span className="h-3 w-3 rounded-full bg-[#28c840]" />
           <span className="ml-2 text-xs text-slate-500">portfolio — bash</span>
         </div>
 
-        <div className="space-y-1 p-6 font-mono text-sm leading-relaxed sm:text-base">
+        <div className="p-6 space-y-1 font-mono text-sm leading-relaxed sm:text-base">
           {displayedLines.map((line, i) => (
             <p key={i} className="text-[#61dca3]">
               {line}
@@ -68,7 +69,7 @@ const Landing = () => {
 
           {finished && (
             <motion.div
-              className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+              className="flex flex-col items-start gap-4 mt-8 sm:flex-row sm:items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -80,7 +81,7 @@ const Landing = () => {
                 onClick={() => navigate('/home')}
                 className="rounded-lg border border-[#61dca3]/40 bg-[#61dca3]/10 px-6 py-2.5 text-sm font-semibold text-[#61dca3] transition hover:bg-[#61dca3]/20 hover:shadow-lg hover:shadow-[#61dca3]/10 active:scale-95"
               >
-                Start →
+                start →
               </button>
             </motion.div>
           )}
