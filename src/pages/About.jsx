@@ -17,8 +17,7 @@ const About = () => (
       <p className="mt-2 text-gray-100 text-md">I am fine with shorter forms of my name too!</p>
 
       <p className="max-w-3xl mt-6 text-xl leading-relaxed text-gray-100">
-        I earned my Bachelor's Degree from Truman State University, majoring in Computer Science with a Data Science
-        minor. Below are languages, frameworks, databases, and tools I have experience with.
+        I graduated with Bachelor's Degree from <span className='text-purple-300'>Truman State University</span>, majoring in Computer Science and minoring in Data Science. Below are languages, frameworks, databases, and tools I have experience with.
       </p>
 
       <h2 className="text-white subhead-text mt-14">Skills</h2>

@@ -3,7 +3,6 @@ import ta from './ta.PNG'
 import oa from './oa.PNG'
 import ra from './ra.PNG'
 import blueberry from './blueberry.JPG'
-import room from './f_room.JPG'
 import scaramouche from './scaramouce.JPG'
 import ai from './ai.png'
 import cat from './cat.png'
@@ -37,7 +36,6 @@ export {
     ra,
     girl,
     blueberry,
-    room,
     scaramouche, 
     columbina, 
     venti, 

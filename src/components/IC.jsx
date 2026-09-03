@@ -18,18 +18,18 @@ const IC = () => {
           rel="noopener noreferrer"
           className="text-black transition-colors duration-300 hover:text-white"
         >
-          github |
+          github 
         </a>
-
+        |
         <a
           href="https://www.instagram.com/ritika.t.lama"
           target="_blank"
           rel="noopener noreferrer"
           className="text-black transition-colors duration-300 hover:text-red-500"
         >
-          instagram |
+          instagram 
         </a>
-
+        |
         <a
           href="www.linkedin.com/in/ritikalama0815"
           target="_blank"

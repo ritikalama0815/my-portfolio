@@ -16,7 +16,6 @@ import {
   girl,
   illumi,
   maomao,
-  room,
   blueberry,
   scaramouche,
   nahihi,
