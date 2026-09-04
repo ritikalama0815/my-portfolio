@@ -5,6 +5,11 @@ import { skills, experiences } from '../constants';
 import IC from '../components/IC';
 import GlitchPageLayout from '../components/GlitchPageLayout';
 
+/**
+ * About page: intro, skills grid, and experience timeline from `constants`.
+ *
+ * @returns {JSX.Element}
+ */
 const About = () => (
   <GlitchPageLayout>
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>

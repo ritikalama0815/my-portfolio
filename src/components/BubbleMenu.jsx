@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { NavLink } from 'react-router-dom';
 
+/** Fallback nav items when `items` prop is omitted. */
 const DEFAULT_ITEMS = [
   {
     label: 'home',
@@ -40,6 +41,26 @@ const DEFAULT_ITEMS = [
   },
 ];
 
+/**
+ * Animated bubble / pill navigation overlay (GSAP).
+ * Toggle opens a full-screen menu of large pill links; clicking a link closes the menu.
+ *
+ * @param {object} props
+ * @param {React.ReactNode} [props.logo] - Optional logo node in the top bar
+ * @param {string} [props.logoTo='/'] - Route for the logo link
+ * @param {(open: boolean) => void} [props.onMenuClick] - Fired when open state changes
+ * @param {string} [props.className]
+ * @param {React.CSSProperties} [props.style]
+ * @param {string} [props.menuAriaLabel='Toggle menu']
+ * @param {string} [props.menuBg='#fff'] - Pill background
+ * @param {string} [props.menuContentColor='#111'] - Pill text color
+ * @param {boolean} [props.useFixedPosition=true] - Fixed vs absolute positioning
+ * @param {{ label: string, to?: string, href?: string, ariaLabel?: string, rotation?: number, hoverStyles?: { bgColor?: string, textColor?: string } }[]} [props.items]
+ * @param {string} [props.animationEase='back.out(1.5)']
+ * @param {number} [props.animationDuration=0.5]
+ * @param {number} [props.staggerDelay=0.12]
+ * @returns {JSX.Element}
+ */
 export default function BubbleMenu({
   logo,
   logoTo = '/',
@@ -64,6 +85,7 @@ export default function BubbleMenu({
 
   const menuItems = items?.length ? items : DEFAULT_ITEMS;
 
+  /** Closes the overlay and notifies `onMenuClick`. */
   const closeMenu = () => {
     setIsMenuOpen(false);
     onMenuClick?.(false);
@@ -82,6 +104,7 @@ export default function BubbleMenu({
     .filter(Boolean)
     .join(' ');
 
+  /** Toggles open/closed and shows the overlay when opening. */
   const handleToggle = () => {
     const nextState = !isMenuOpen;
     if (nextState) setShowOverlay(true);
@@ -162,6 +185,12 @@ export default function BubbleMenu({
     return () => window.removeEventListener('resize', handleResize);
   }, [isMenuOpen, menuItems]);
 
+  /**
+   * Renders one menu pill as a React Router `NavLink` or plain `<a>`.
+   * @param {{ label: string, to?: string, href?: string, ariaLabel?: string, rotation?: number, hoverStyles?: object }} item
+   * @param {number} idx
+   * @returns {JSX.Element}
+   */
   const renderLink = (item, idx) => {
     const pillClass = [
       'pill-link',

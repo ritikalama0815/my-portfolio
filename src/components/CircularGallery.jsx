@@ -1,9 +1,18 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
 
+/** Max longest-edge size for carousel GPU textures. */
 const MAX_TEXTURE_SIZE = 1024;
+/** @type {Map<string, Promise<{ image: HTMLImageElement | HTMLCanvasElement, width: number, height: number }>>} */
 const textureCache = new Map();
 
+/**
+ * Debounces a function call.
+ * @template {(...args: any[]) => void} T
+ * @param {T} func
+ * @param {number} wait - Delay in ms
+ * @returns {(...args: Parameters<T>) => void}
+ */
 function debounce(func, wait) {
   let timeout;
   return function (...args) {
@@ -12,10 +21,21 @@ function debounce(func, wait) {
   };
 }
 
+/**
+ * Linear interpolation between two numbers.
+ * @param {number} p1
+ * @param {number} p2
+ * @param {number} t - Blend factor 0–1
+ * @returns {number}
+ */
 function lerp(p1, p2, t) {
   return p1 + (p2 - p1) * t;
 }
 
+/**
+ * Binds all prototype methods on an instance (for class event handlers).
+ * @param {object} instance
+ */
 function autoBind(instance) {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
@@ -25,6 +45,12 @@ function autoBind(instance) {
   });
 }
 
+/**
+ * Loads an image and optionally downscales it for WebGL textures (cached by src).
+ * @param {string} src
+ * @param {number} [maxSize=MAX_TEXTURE_SIZE]
+ * @returns {Promise<{ image: HTMLImageElement | HTMLCanvasElement, width: number, height: number }>}
+ */
 function loadOptimizedImage(src, maxSize = MAX_TEXTURE_SIZE) {
   if (textureCache.has(src)) {
     return textureCache.get(src);
@@ -57,6 +83,14 @@ function loadOptimizedImage(src, maxSize = MAX_TEXTURE_SIZE) {
   return promise;
 }
 
+/**
+ * Renders text onto a canvas and uploads it as an ogl Texture.
+ * @param {WebGLRenderingContext} gl
+ * @param {string} text
+ * @param {string} [font]
+ * @param {string} [color]
+ * @returns {{ texture: Texture, width: number, height: number }}
+ */
 function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'black') {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
@@ -77,6 +111,9 @@ function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'blac
   return { texture, width: canvas.width, height: canvas.height };
 }
 
+/**
+ * Caption mesh rendered below a gallery plane.
+ */
 class Title {
   constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }) {
     autoBind(this);
@@ -127,6 +164,9 @@ class Title {
   }
 }
 
+/**
+ * Single carousel slide: textured plane + optional caption {@link Title}.
+ */
 class Media {
   constructor({
     geometry,
@@ -311,6 +351,10 @@ class Media {
   }
 }
 
+/**
+ * Internal ogl scene controller: renderer, camera, scroll, and media list.
+ * Created by {@link CircularGallery}; call `destroy()` on unmount.
+ */
 class App {
   constructor(
     container,
@@ -515,6 +559,22 @@ class App {
   }
 }
 
+/**
+ * Curved infinite image carousel (ogl WebGL).
+ * Drag / scroll to browse; clicking the centered item fires `onItemClick`.
+ *
+ * @param {object} props
+ * @param {{ image: string, text?: string }[]} props.items - Slides to display
+ * @param {number} [props.bend=1] - Curve strength (0 = flat)
+ * @param {string} [props.textColor='#ffffff'] - Caption color
+ * @param {number} [props.borderRadius=0.05] - Plane corner radius (shader UV space)
+ * @param {string} [props.font] - CSS font for captions
+ * @param {number} [props.scrollSpeed=2] - Wheel / drag sensitivity
+ * @param {number} [props.scrollEase=0.05] - Scroll smoothing (lerp factor)
+ * @param {string} [props.className]
+ * @param {(index: number) => void} [props.onItemClick] - Fired when the front item is clicked
+ * @returns {JSX.Element}
+ */
 export default function CircularGallery({
   items,
   bend = 1,

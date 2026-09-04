@@ -2,6 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './GradientWaves.css';
 
+/**
+ * Converts a hex color string to normalized RGB for WebGL uniforms.
+ * @param {string} hex - e.g. `#5227FF` or `5227FF`
+ * @returns {[number, number, number]} RGB in 0–1 range
+ */
 const hexToRgb = (hex) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 1, 1];
@@ -12,6 +17,11 @@ const hexToRgb = (hex) => {
   ];
 };
 
+/**
+ * Maps a detail preset to raymarch step count.
+ * @param {'low' | 'medium' | 'high'} detail
+ * @returns {number}
+ */
 const detailToSteps = (detail) => {
   if (detail === 'low') return 40.0;
   if (detail === 'high') return 110.0;
@@ -130,8 +140,37 @@ void main() {
 }
 `;
 
+/** @type {WeakMap<object, { mouse: Float32Array }>} */
 const ctxMap = new WeakMap();
 
+/**
+ * Full-screen animated ocean / gradient wave shader (WebGL2 via ogl).
+ * Typically used behind content via {@link GlitchPageLayout}.
+ *
+ * @param {object} props
+ * @param {string} [props.horizonColor='#5227FF']
+ * @param {string} [props.waveColor='#FF9FFC']
+ * @param {string} [props.crestColor='#FFFFFF']
+ * @param {number} [props.speed=0.4]
+ * @param {number} [props.amplitude=2.5]
+ * @param {number} [props.waveScale=0.6]
+ * @param {number} [props.waveRatio=0.9]
+ * @param {number} [props.swell=35]
+ * @param {number} [props.turbulence=20]
+ * @param {number} [props.tilt=1.11]
+ * @param {number} [props.zoom=1.0]
+ * @param {number} [props.height=5.5]
+ * @param {number} [props.fogDepth=15]
+ * @param {'low' | 'medium' | 'high'} [props.detail='medium']
+ * @param {number} [props.brightness=1.0]
+ * @param {number} [props.opacity=1.0]
+ * @param {boolean} [props.mouseInteraction=true]
+ * @param {number} [props.parallaxStrength=0.5]
+ * @param {boolean} [props.grain=true]
+ * @param {number} [props.grainIntensity=0.05]
+ * @param {string} [props.className]
+ * @returns {JSX.Element}
+ */
 const GradientWaves = ({
   horizonColor = '#5227FF',
   waveColor = '#FF9FFC',

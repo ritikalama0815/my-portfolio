@@ -1,3 +1,7 @@
+/**
+ * Image asset barrel — photos, experience icons, and gallery artworks.
+ * Import from here (e.g. `import { cat } from '../assets/images'`) so Vite can resolve URLs.
+ */
 import hero from './hero.jpg'
 import ta from './ta.PNG'
 import oa from './oa.PNG'

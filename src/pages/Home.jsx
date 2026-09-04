@@ -7,27 +7,36 @@ import Bird from '../models/Bird';
 import Plane from '../models/Plane';
 import Information from '../components/Information.jsx';
 
-import sakura from '../assets/sakura.mp3'
-import {soundoff, soundon} from '../assets/icons'
+import sakura from '../assets/sakura.mp3';
+import { soundoff, soundon } from '../assets/icons';
 
+/**
+ * 3D island home at `/home`.
+ * Drag the island to rotate through stages; each stage shows an {@link Information} popup.
+ * Toggle looping sakura music via the bottom-left icon.
+ *
+ * @returns {JSX.Element}
+ */
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
-  audioRef.current.volume = .4;
+  audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
-
 
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
-  const[isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
-  useEffect(() =>{
-    if(isPlayingMusic)
-      audioRef.current.play();
-    return() =>{
+  useEffect(() => {
+    if (isPlayingMusic) audioRef.current.play();
+    return () => {
       audioRef.current.pause();
-    }
-  }, [isPlayingMusic])
+    };
+  }, [isPlayingMusic]);
 
+  /**
+   * Responsive scale/position/rotation for the Island model.
+   * @returns {[number[], number[], number[]]} [scale, position, rotation]
+   */
   const adjustIsland = () => {
     let screenScale = null;
     let screenPosition = [0, -6.5, -43];
@@ -42,6 +51,10 @@ const Home = () => {
     return [screenScale, screenPosition, rotation];
   };
 
+  /**
+   * Responsive scale/position for the Plane model.
+   * @returns {[number[], number[]]} [scale, position]
+   */
   const adjustPlane = () => {
     let screenScale;
     let screenPosition;
@@ -62,29 +75,24 @@ const Home = () => {
 
   return (
     <section className="relative w-full h-screen">
-      <div className='absolute left-0 right-0 z-10 flex items-center justify-center top-28'>
-        {currentStage && < Information currentStage={currentStage} />}
+      <div className="absolute left-0 right-0 z-10 flex items-center justify-center top-28">
+        {currentStage && <Information currentStage={currentStage} />}
       </div>
-      <Canvas
-        className="w-full h-screen bg-transparent"
-        camera={{ near: 0.1, far: 1000 }}
-      >
+      <Canvas className="w-full h-screen bg-transparent" camera={{ near: 0.1, far: 1000 }}>
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={-0.5} />
           <ambientLight intensity={0.4} />
           <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 
           <Bird />
-          <Sky 
-            isRotating={isRotating}
-          />
+          <Sky isRotating={isRotating} />
           <Island
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage} 
+            setCurrentStage={setCurrentStage}
           />
           <Plane
             position={planePosition}
@@ -94,13 +102,13 @@ const Home = () => {
           />
         </Suspense>
       </Canvas>
-      <div className='absolute bottom-2 left -2'>
+      <div className="absolute bottom-2 left -2">
         <img
           src={!isPlayingMusic ? soundoff : soundon}
-          alt='sound'
-          className="h-20 w-20 object-contain"
-          onClick={()=> setIsPlayingMusic(!isPlayingMusic)}
-          />
+          alt="sound"
+          className="object-contain w-20 h-20"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        />
       </div>
     </section>
   );

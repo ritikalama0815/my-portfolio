@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ExternalLink} from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { projects } from '../constants';
 import IC from '../components/IC';
 import GlitchPageLayout from '../components/GlitchPageLayout';
 
+/** Maps project `theme` keys to Tailwind gradient / ring accent classes. */
 const themeAccent = {
   'btn-back-yellow': 'from-amber-400/20 to-amber-600/10 ring-amber-400/30',
   'btn-back-red': 'from-rose-400/20 to-rose-600/10 ring-rose-400/30',
@@ -15,6 +16,11 @@ const themeAccent = {
   'btn-back-orange': 'from-orange-400/20 to-orange-600/10 ring-orange-400/30',
 };
 
+/**
+ * Projects page: responsive card grid driven by `constants.projects`.
+ *
+ * @returns {JSX.Element}
+ */
 const Projects = () => (
   <GlitchPageLayout>
     <motion.div
