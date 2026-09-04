@@ -1,5 +1,9 @@
 import GradientWaves from './GradientWaves';
 
+/**
+ * Default look for content-page wave backgrounds.
+ * Tweak these values to restyle About / Projects / Gallery / Contact without editing the shader.
+ */
 const WAVE_PROPS = {
   horizonColor: '#5227FF',
   waveColor: '#FF9FFC',
@@ -23,6 +27,15 @@ const WAVE_PROPS = {
   grainIntensity: 0.05,
 };
 
+/**
+ * Page shell: fixed {@link GradientWaves} backdrop + scrollable content column.
+ *
+ * @param {object} props
+ * @param {React.ReactNode} props.children - Page content
+ * @param {string} [props.className] - Extra classes on the outer wrapper
+ * @param {boolean} [props.fullWidth=false] - Use a wider max-width (Gallery, Contact)
+ * @returns {JSX.Element}
+ */
 export default function GlitchPageLayout({ children, className = '', fullWidth = false }) {
   return (
     <div className={`wave-page relative min-h-screen overflow-x-hidden ${className}`}>

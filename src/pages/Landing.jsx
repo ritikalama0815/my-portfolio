@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+/** Simulated terminal boot lines typed out on first visit. */
 const BOOT_LINES = [
   'ritika@portfolio:~$ ./boot.sh',
   'detecting users... ok',
@@ -10,6 +11,12 @@ const BOOT_LINES = [
   'welcome to my portfolio',
 ];
 
+/**
+ * Landing page at `/`: terminal-style boot animation and a Start button to `/home`.
+ * Navbar is hidden on this route.
+ *
+ * @returns {JSX.Element}
+ */
 const Landing = () => {
   const navigate = useNavigate();
   const [lineIndex, setLineIndex] = useState(0);

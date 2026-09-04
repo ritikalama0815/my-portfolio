@@ -1,3 +1,6 @@
+/**
+ * Icon asset barrel — skill logos and UI icons (e.g. soundon/soundoff).
+ */
 import css from './css.svg'
 import express from './express.svg'
 import git from './git.svg'

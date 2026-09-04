@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Footer social links (GitHub, Instagram, LinkedIn) used on About / Projects.
+ *
+ * @returns {JSX.Element}
+ */
 const IC = () => {
   return (
     <section
@@ -18,7 +23,7 @@ const IC = () => {
           rel="noopener noreferrer"
           className="text-black transition-colors duration-300 hover:text-white"
         >
-          github 
+          github
         </a>
         |
         <a
@@ -27,7 +32,7 @@ const IC = () => {
           rel="noopener noreferrer"
           className="text-black transition-colors duration-300 hover:text-red-500"
         >
-          instagram 
+          instagram
         </a>
         |
         <a
@@ -36,9 +41,8 @@ const IC = () => {
           rel="noopener noreferrer"
           className="text-black transition-colors duration-300 hover:text-blue-300"
         >
-          linkedIn 
+          linkedIn
         </a>
-
       </div>
     </section>
   );

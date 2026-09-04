@@ -20,9 +20,23 @@ import {
   scaramouche,
   nahihi,
   flins,
-  kagura
+  kagura,
 } from '../assets/images';
 
+/**
+ * Artwork catalog for the Arts gallery.
+ * `text` is the label under each carousel slide; `title` / `year` / `description` appear in the modal.
+ *
+ * @type {{
+ *   id: number,
+ *   title: string,
+ *   image: string,
+ *   text: string,
+ *   description: string,
+ *   year: string,
+ *   artist?: string
+ * }[]}
+ */
 const ARTWORKS = [
   {id: 1, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: '2026'},
   { id: 2, title: 'Columbina', image: columbina, text: 'Columbina', description: 'you can tell she is my favourite character.', year: '2026' },
@@ -82,6 +96,17 @@ const ARTWORKS = [
   
 ];
 
+/**
+ * Full-screen artwork viewer: centered image (not full viewport) + info box on the right.
+ * Keyboard: Escape closes, ArrowLeft/ArrowRight navigate.
+ *
+ * @param {object} props
+ * @param {{ id: number, title: string, image: string, description: string, year: string }} props.artwork
+ * @param {() => void} props.onClose
+ * @param {() => void} props.onPrev
+ * @param {() => void} props.onNext
+ * @returns {JSX.Element}
+ */
 function GalleryModal({ artwork, onClose, onPrev, onNext }) {
   const [imageSrc, setImageSrc] = useState(null);
   const [imageLoading, setImageLoading] = useState(true);
@@ -265,6 +290,12 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
   );
 }
 
+/**
+ * Arts / Gallery page: curved WebGL carousel with expand modal.
+ * Preloads images via {@link preloadGalleryImages} and neighbors when a piece is open.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -285,14 +316,20 @@ export default function Gallery() {
 
   const selectedArtwork = selectedIndex !== null ? ARTWORKS[selectedIndex] : null;
 
+  /** Advance to the next artwork (wraps). */
   const goNext = useCallback(() => {
     setSelectedIndex((i) => (i === null ? 0 : (i + 1) % ARTWORKS.length));
   }, []);
 
+  /** Go to the previous artwork (wraps). */
   const goPrev = useCallback(() => {
     setSelectedIndex((i) => (i === null ? 0 : (i - 1 + ARTWORKS.length) % ARTWORKS.length));
   }, []);
 
+  /**
+   * Opens the modal for a carousel item.
+   * @param {number} index - Index into {@link ARTWORKS}
+   */
   const handleItemClick = useCallback((index) => {
     setSelectedIndex(index);
   }, []);

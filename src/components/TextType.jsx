@@ -1,6 +1,33 @@
 import { useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 
+/**
+ * Typewriter effect that types and (optionally) deletes through one or more strings.
+ *
+ * @param {object} props
+ * @param {string | string[]} props.text - Sentence(s) to cycle
+ * @param {string} [props.as='div'] - HTML/React element type for the wrapper
+ * @param {number} [props.typingSpeed=50] - ms per character when typing
+ * @param {number} [props.initialDelay=0] - Delay before the first character
+ * @param {number} [props.pauseDuration=2000] - Pause after a sentence completes
+ * @param {number} [props.deletingSpeed=30] - ms per character when deleting
+ * @param {boolean} [props.loop=true] - Restart after the last sentence
+ * @param {string} [props.className]
+ * @param {boolean} [props.showCursor=true]
+ * @param {boolean} [props.hideCursorWhileTyping=false]
+ * @param {string} [props.cursorCharacter='|']
+ * @param {string} [props.cursorClassName]
+ * @param {number} [props.cursorBlinkDuration=0.5]
+ * @param {string[]} [props.textColors] - Cycle colors per sentence
+ * @param {{ min: number, max: number }} [props.variableSpeed] - Random typing speed range
+ * @param {boolean} [props.variableSpeedEnabled=false]
+ * @param {number} [props.variableSpeedMin=60]
+ * @param {number} [props.variableSpeedMax=120]
+ * @param {(sentence: string, index: number) => void} [props.onSentenceComplete]
+ * @param {boolean} [props.startOnVisible=false] - Wait until in viewport
+ * @param {boolean} [props.reverseMode=false] - Type the string reversed
+ * @returns {JSX.Element}
+ */
 const TextType = ({
   text,
   as: Component = 'div',
@@ -41,12 +68,14 @@ const TextType = ({
     return null;
   }, [variableSpeed, variableSpeedEnabled, variableSpeedMin, variableSpeedMax]);
 
+  /** @returns {number} Typing delay for the next character (fixed or random). */
   const getRandomSpeed = useCallback(() => {
     if (!resolvedVariableSpeed) return typingSpeed;
     const { min, max } = resolvedVariableSpeed;
     return Math.random() * (max - min) + min;
   }, [resolvedVariableSpeed, typingSpeed]);
 
+  /** @returns {string} CSS color for the active sentence. */
   const getCurrentTextColor = () => {
     if (textColors.length === 0) return 'inherit';
     return textColors[currentTextIndex % textColors.length];

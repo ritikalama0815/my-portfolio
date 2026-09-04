@@ -8,6 +8,11 @@ import Fox from '../models/Fox';
 import useAlert from '../hooks/useAlert';
 import GlitchPageLayout from '../components/GlitchPageLayout';
 
+/**
+ * Contact page: EmailJS form + animated Fox. Requires Vite EmailJS env vars.
+ *
+ * @returns {JSX.Element}
+ */
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -15,12 +20,24 @@ const Contact = () => {
   const [currentAnimation, setCurrentAnimation] = useState('idle');
   const { alert, showAlert, hideAlert } = useAlert();
 
+  /**
+   * Syncs controlled form fields with input changes.
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e
+   */
   const changes = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+  /** Plays an attentive fox animation while a field is focused. */
   const focus = () => setCurrentAnimation('Take 001');
+
+  /** Returns the fox to a static pose when a field blurs. */
   const blur = () => setCurrentAnimation('Static Pose');
 
+  /**
+   * Sends the message via EmailJS and shows a success/error alert.
+   * @param {React.FormEvent<HTMLFormElement>} e
+   */
   const submit = (e) => {
     e.preventDefault();
     setIsLoading(true);

@@ -1,6 +1,10 @@
 import { useLocation } from 'react-router-dom';
 import BubbleMenu from './BubbleMenu';
 
+/**
+ * Site navigation items passed to {@link BubbleMenu}.
+ * @type {{ label: string, to: string, ariaLabel: string, rotation: number, hoverStyles: { bgColor: string, textColor: string } }[]}
+ */
 const navItems = [
   {
     label: 'home',
@@ -39,6 +43,11 @@ const navItems = [
   },
 ];
 
+/**
+ * Global navigation wrapper. Renders {@link BubbleMenu} on every route except `/` (landing).
+ *
+ * @returns {JSX.Element | null}
+ */
 const Navbar = () => {
   const { pathname } = useLocation();
 

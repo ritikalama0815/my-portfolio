@@ -1,34 +1,42 @@
-import {ta, oa, ra, assistant} from "../assets/images";
+/**
+ * Portfolio content constants: skills, work experience, and projects.
+ * Edit this file to update the About and Projects pages without touching UI code.
+ */
+import { ta, oa, ra, assistant } from '../assets/images';
 import {
-    css,
-    express,
-    git,
-    github,
-    html,
-    javascript,
-    mongodb,
-    java,
-    sql,
-    nextjs,
-    nodejs,
-    c,
-    r,
-    c1,
-    react,
-    python,
-    cicd,
-    tailwindcss, 
-    angular, 
-    PostgreSQL,
-    aws, 
-    docker, 
-    bootstrap, 
-    socket,
-    electron, 
-    typescript, 
-    dotnet
-} from "../assets/icons";
+  css,
+  express,
+  git,
+  github,
+  html,
+  javascript,
+  mongodb,
+  java,
+  sql,
+  nextjs,
+  nodejs,
+  c,
+  r,
+  c1,
+  react,
+  python,
+  cicd,
+  tailwindcss,
+  angular,
+  PostgreSQL,
+  aws,
+  docker,
+  bootstrap,
+  socket,
+  electron,
+  typescript,
+  dotnet,
+} from '../assets/icons';
 
+/**
+ * Skill icons shown on the About page.
+ * @type {{ imageUrl: string, name: string, type: string }[]}
+ */
 export const skills = [
     {
         imageUrl: react,
@@ -169,6 +177,10 @@ export const skills = [
     },
 ];
 
+/**
+ * Experience timeline entries for the About page.
+ * @type {{ title: string, company_name: string, icon: string, date: string, points: string[] }[]}
+ */
 export const experiences = [
     {
         title: "Machine Learning Researcher",
@@ -215,6 +227,11 @@ export const experiences = [
     },
 ];
 
+/**
+ * Project / research cards for the Projects page.
+ * `theme` maps to accent styles in Projects.jsx (`btn-back-*`).
+ * @type {{ theme: string, name: string, description: string, link: string }[]}
+ */
 export const projects = [
     {
         theme: 'btn-back-yellow',

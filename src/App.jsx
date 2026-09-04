@@ -1,11 +1,18 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, BrowserRouter as Router, Routes, Navigate } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import { Home, About, Projects, Contact } from './pages';
 
+/** Lazy-loaded arts gallery (heavier ogl bundle). */
 const Gallery = lazy(() => import('./pages/Gallery'));
 
+/**
+ * Root app: React Router shell, global BubbleMenu navbar, and page routes.
+ * Gallery is code-split; other pages load eagerly.
+ *
+ * @returns {JSX.Element}
+ */
 const App = () => (
   <main className="h-full">
     <Router>
