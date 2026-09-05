@@ -20,6 +20,7 @@ import {
   scaramouche,
   nahihi,
   flins,
+  myself,
   kagura,
 } from '../assets/images';
 
@@ -38,7 +39,7 @@ import {
  * }[]}
  */
 const ARTWORKS = [
-  {id: 1, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: '2026'},
+  {id: 12, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: '2026'},
   { id: 2, title: 'Columbina', image: columbina, text: 'Columbina', description: 'you can tell she is my favourite character.', year: '2026' },
   { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'i drew cat sleeping because they look so cute', year: '2025' },
   { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'he is a free-spirited bard, but what story could be hidden under there?', year: '2026' },
@@ -52,6 +53,7 @@ const ARTWORKS = [
       'his transformation from being ugly 100 pierced robot to promoting shampoo in the show was crazy',
     year: '2025'
   },
+  { id: 1, title: 'Character Potray Study', image: myself, text: 'Character Potray Study', description: 'depicting myself and my natural pink hair', year: '2026' },
   { id: 7, title: 'Arlecchino', image: father, text: 'Arlecchino', description: 'she is head of an orphanage. surely she can\'t be bad, right?...RIGHT.', year: '2025' },
   {
     id: 8,
@@ -73,7 +75,7 @@ const ARTWORKS = [
     year: '2025'
   },
   {
-    id: 12,
+    id: 17,
     title: 'Ai',
     image: ai,
     text: 'Ai',
