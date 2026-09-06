@@ -42,7 +42,7 @@ import {
 const ARTWORKS = [
   {id: 12, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: '2026'},
   { id: 2, title: 'Columbina', image: columbina, text: 'Columbina', description: 'you can tell she is my favourite character.', year: '2026' },
-  { id: 17, title: 'The Knave', image: arlecchino, text: 'ARLECCHINO', description: 'took me at least 2 hours because i couldn\'t pick appropriate colors.', year: '2025' },
+  { id: 17, title: 'The Knave', image: arlecchino, text: 'ARLECCHINO', description: 'took me at least 2 hours because i couldn\'t pick appropriate colors.', year: '2026' },
   { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'i drew cat sleeping because they look so cute', year: '2025' },
   { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'he is a free-spirited bard, but what story could be hidden under there?', year: '2026' },
   { id: 5, title: 'Forest', image: forest, text: 'Forest', description: 'i dream of getting lost in eerie forest sometimes, and it sends chill down my spine when i wake up', year: '2025' },
