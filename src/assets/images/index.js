@@ -24,8 +24,9 @@ import sandbina from './sandbina.webp'
 import assistant from './assistant.webp'
 import myself from './ritika.webp'
 import arlecchino from './arlecchino.webp'
-
+import hyposelenia from './hyposelenia.webp'
 export {
+    hyposelenia,
     arlecchino,
     myself,
     sandbina,
