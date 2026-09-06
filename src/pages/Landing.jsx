@@ -6,8 +6,6 @@ import { motion } from 'framer-motion';
 const BOOT_LINES = [
   'ritika@portfolio:~$ ./boot.sh',
   'detecting users... ok',
-  'authenticating users... ok',
-  'loading assets... ok',
   'welcome to my portfolio',
 ];
 
