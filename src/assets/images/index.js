@@ -23,8 +23,10 @@ import kagura from './kagura.png'
 import sandbina from './sandbina.png'
 import assistant from './assistant.png'
 import myself from './ritika.png'
+import arlecchino from './arlecchino.png'
 
 export {
+    arlecchino,
     myself,
     sandbina,
     hero,
