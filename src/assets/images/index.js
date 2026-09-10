@@ -25,7 +25,9 @@ import assistant from './assistant.webp'
 import myself from './ritika.webp'
 import arlecchino from './arlecchino.webp'
 import hyposelenia from './hyposelenia.webp'
+import columbina_sunset from './columbina_sunset.webp'
 export {
+    columbina_sunset,
     hyposelenia,
     arlecchino,
     myself,
