@@ -23,7 +23,8 @@ import {
   myself,
   kagura,
   arlecchino,
-  hyposelenia
+  hyposelenia,
+  columbina_sunset
 } from '../assets/images';
 
 /**
@@ -41,13 +42,14 @@ import {
  * }[]}
  */
 const ARTWORKS = [
-  {id: 12, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: '2026'},
-  { id: 2, title: 'Columbina', image: hyposelenia, text: 'Columbina', description: 'reference on pinterest, she represents blue flower; appropriate blue color reference for her.', year: '2026' },
-  { id: 17, title: 'The Knave', image: arlecchino, text: 'ARLECCHINO', description: 'took me at least 2 hours because i couldn\'t pick appropriate colors.', year: '2026' },
-  { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'i drew cat sleeping because they look so cute', year: '2025' },
-  { id: 18, title: 'Columbina', image: columbina, text: 'Columbina', description: 'you can tell she is my favourite character.', year: '2026' },
-  { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'he is a free-spirited bard, but what story could be hidden under there?', year: '2026' },
-  { id: 5, title: 'Forest', image: forest, text: 'Forest', description: 'i dream of getting lost in eerie forest sometimes, and it sends chill down my spine when i wake up', year: '2025' },
+  {id: 18, title: 'Damsel In Distress', image: columbina_sunset, text: 'Columbina Sunset', description: 'this is probably how she would look if she time travels to modern world, serene and beautiful; touch of sunset would look mesmerizing on her', year: 'Sept 2026'},
+  {id: 12, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: 'Aug 2026'},
+  { id: 2, title: 'Columbina', image: hyposelenia, text: 'Columbina', description: 'reference on pinterest, she represents blue flower; appropriate blue color reference for her.', year: 'Aug 2026' },
+  { id: 17, title: 'The Knave', image: arlecchino, text: 'ARLECCHINO', description: 'took me at least 2 hours because i couldn\'t pick appropriate colors.', year: 'Aug 2026' },
+  { id: 3, title: 'Cat', image: cat, text: 'Cat', description: 'i drew cat sleeping because they look so cute', year: ' Oct 2025' },
+  { id: 18, title: 'Columbina', image: columbina, text: 'Columbina', description: 'you can tell she is my favourite character.', year: 'May 2026' },
+  { id: 4, title: 'Venti', image: venti, text: 'Venti', description: 'he is a free-spirited bard, but what story could be hidden under there?', year: 'May 2026' },
+  { id: 5, title: 'Forest', image: forest, text: 'Forest', description: 'i dream of getting lost in eerie forest sometimes, and it sends chill down my spine when i wake up', year: 'Sept 2025' },
   {
     id: 6,
     title: 'Illumi',
@@ -55,10 +57,10 @@ const ARTWORKS = [
     text: 'Illumi',
     description:
       'his transformation from being ugly 100 pierced robot to promoting shampoo in the show was crazy',
-    year: '2025'
+    year: 'June 2025'
   },
-  { id: 1, title: 'Character Potray Study', image: myself, text: 'Character Potray Study', description: 'depicting myself and my natural pink hair', year: '2026' },
-  { id: 7, title: 'Arlecchino', image: father, text: 'Arlecchino', description: 'she is head of an orphanage. surely she can\'t be bad, right?...RIGHT.', year: '2025' },
+  { id: 1, title: 'Character Potray Study', image: myself, text: 'Character Potray Study', description: 'depicting myself and my natural pink hair', year: 'Aug 2026' },
+  { id: 7, title: 'Arlecchino', image: father, text: 'Arlecchino', description: 'she is head of an orphanage. surely she can\'t be bad, right?...RIGHT.', year: 'Oct 2025' },
   {
     id: 8,
     title: 'Mao Mao',
@@ -66,9 +68,9 @@ const ARTWORKS = [
     text: 'Mao Mao',
     description:
       'descends from one of the major clans, is super talented apothecary, is liked by emperor, emperor\'s son(brother), concubines, empress, and many other, but still thinks herself as lowly birth. ',
-    year: '2025'
+    year: 'Sept 2025'
   },
-  { id: 10, title: 'Character Potray study', image: girl, text: 'girl', description: 'i want to draw like artists from rednote. this is just practice of their art style, which flopped badly.', year: '2026'},
+  { id: 10, title: 'Character Potray study', image: girl, text: 'girl', description: 'i want to draw like artists from rednote. this is just practice of their art style, which flopped badly.', year: 'June 2026'},
   {
     id: 11,
     title: 'Scaramouche',
@@ -76,7 +78,7 @@ const ARTWORKS = [
     text: 'Scaramouche',
     description:
       'Who? \n (the joke is that he is deleted from the database)',
-    year: '2025'
+    year: 'April 2025'
   },
   {
     id: 17,
@@ -85,18 +87,18 @@ const ARTWORKS = [
     text: 'Ai',
     description:
       'character is cute and loved but the story is garbage.',
-    year: '2025',
+    year: 'May 2025',
   },
-  { id: 13, title: 'Nahihi', image: nahihi, text: 'Nahihi', description: 'very smart and is a living database. ask her anything, she may hide somethings but she knows it all.', year: '2026' },
-  { id: 14, title: 'Flins', image: flins, text: 'Flins', description: 'he invites guests to the cemetry, not his house. Funny big lad.', year: '2026' },
-  { id: 15, title: 'Kagura', image: kagura, text: 'Frieren', description: 'strong, funny, gluttonous. beef or fish? beef AND fish', year: '2026' },
+  { id: 13, title: 'Nahihi', image: nahihi, text: 'Nahihi', description: 'very smart and is a living database. ask her anything, she may hide somethings but she knows it all.', year: 'May 2026' },
+  { id: 14, title: 'Flins', image: flins, text: 'Flins', description: 'he invites guests to the cemetry, not his house. Funny big lad.', year: 'July 2026' },
+  { id: 15, title: 'Kagura', image: kagura, text: 'Frieren', description: 'strong, funny, gluttonous. beef or fish? beef AND fish', year: 'May 2026' },
   {
     id: 16,
     title: 'Blueberry',
     image: blueberry,
     text: 'Blueberry',
     description: 'Why is blueberry called blueberry but strawberry not called redberry?',
-    year: '2025',
+    year: 'Nov 2025',
     artist: 'Ritika Lama',
   },
   
@@ -267,7 +269,7 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
                 key={imageSrc}
                 src={imageSrc}
                 alt={artwork.title}
-                className="max-h-[min(58vh,480px)] w-auto max-w-[min(72vw,380px)] rounded-sm border-2 border-white object-contain drop-shadow-2xl sm:max-w-[min(52vw,420px)]"
+                className="max-h-[min(58vh,480px)] w-auto max-w-[min(72vw,380px)] rounded-sm object-contain drop-shadow-2xl sm:max-w-[min(52vw,420px)]"
                 decoding="async"
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -282,11 +284,11 @@ function GalleryModal({ artwork, onClose, onPrev, onNext }) {
             className="absolute left-0 z-10 hidden w-4 h-4 rotate-45 -translate-x-1/2 -translate-y-1/2 bg-white shadow-sm lg:block top-1/2"
             aria-hidden
           />
-          <div className="px-5 py-5 text-left bg-white border rounded-lg shadow-xl border-white/20 sm:px-6 sm:py-6">
-            <h2 className="text-lg font-semibold leading-snug text-slate-900 sm:text-xl">
+          <div className="px-5 py-5 text-left bg-white border rounded-lg shadow-xl sm:px-6 sm:py-6">
+            <h2 className="text-lg font-semibold leading-snug text-slate-800 sm:text-xl">
               {artwork.title} ({artwork.year})
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-slate-500 sm:text-base">
               {artwork.description}
             </p>
           </div>
