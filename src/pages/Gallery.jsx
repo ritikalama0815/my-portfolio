@@ -24,7 +24,8 @@ import {
   kagura,
   arlecchino,
   hyposelenia,
-  columbina_sunset
+  columbina_sunset,
+  gojo
 } from '../assets/images';
 
 /**
@@ -42,6 +43,7 @@ import {
  * }[]}
  */
 const ARTWORKS = [
+  {id: 19, title: 'Honored One', image: gojo, text: '6eyes', description: 'its easier to draw women than guys. so, he is one of the few ones to be showcased.', year: 'Sept 2026'},
   {id: 18, title: 'Damsel In Distress', image: columbina_sunset, text: 'Columbina Sunset', description: 'this is probably how she would look if she time travels to modern world, serene and beautiful; touch of sunset would look mesmerizing on her', year: 'Sept 2026'},
   {id: 12, title: 'Columbina and Sandrone', image: sandbina, text: 'Columbina and Sandrone', description: 'i saw an epic pose reference on tiktok, and drew this based on that reference.', year: 'Aug 2026'},
   { id: 2, title: 'Columbina', image: hyposelenia, text: 'Columbina', description: 'reference on pinterest, she represents blue flower; appropriate blue color reference for her.', year: 'Aug 2026' },
