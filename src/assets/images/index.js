@@ -28,7 +28,9 @@ import hyposelenia from './hyposelenia.webp'
 import columbina_sunset from './columbina_sunset.webp'
 import gojo from './gojo.webp'
 import furina from './furina.webp'
+import columbinaS from './columbina_s.webp'
 export {
+    columbinaS,
     gojo,
     furina,
     columbina_sunset,
