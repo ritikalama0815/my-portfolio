@@ -26,7 +26,8 @@ import {
   hyposelenia,
   columbina_sunset,
   gojo,
-  furina
+  furina,
+  columbinaS
 } from '../assets/images';
 
 /**
@@ -44,6 +45,7 @@ import {
  * }[]}
  */
 const ARTWORKS = [
+  {id: 21, title: 'Song to the Mirrored Moon', image: columbinaS, text: 'columbina', description: 'i have been insanely studying full body and background, and this is one of the by products. took me around 3 hours!', year: 'Sept 2026'},
   {id: 20, title: 'Furina de Fontaine', image: furina, text: 'furina', description: 'one of the few ones with full background. background inspired by staryy nights of vincent van gogh.', year: 'Sept 2026'},
   {id: 19, title: 'Honored One', image: gojo, text: '6eyes', description: 'its easier to draw women than guys. so, he is one of the few ones to be shown.', year: 'Sept 2026'},
   {id: 18, title: 'Damsel In Distress', image: columbina_sunset, text: 'Columbina Sunset', description: 'this is probably how she would look if she time travels to modern world, serene and beautiful; touch of sunset would look mesmerizing on her', year: 'Sept 2026'},
