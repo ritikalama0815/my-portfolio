@@ -253,6 +253,18 @@ export const projects = [
     },
     {
         theme: 'btn-back-yellow',
+        name: 'Codebase Archaeologist',
+        description: 'A web application that allows users to analyze the architecture of a GitHub repository and visualize it in a graph. Tech: React, Next.js, TypeScript, Gemini',
+        link: 'https://github.com/ritikalama0815/codebase-archaeologist',
+    },
+    {
+        theme: 'btn-back-yellow',
+        name: 'Doctor\'s Translator',
+        description: 'A desktop app that reads messy prescriptions, explains them in plain language, checks drug names against RxNorm / OpenFDA, chats about general symptoms with safety rails, and rings local reminders.',
+        link: 'https://github.com/ritikalama0815/doc-translator',
+    },
+    {
+        theme: 'btn-back-yellow',
         name: 'My Portfolio',
         description: 'You\'re currently looking at this project. It sums up my skills and projects while showcasing the 3D rendering of objects.',
         link: 'https://github.com/ritikalama0815/my-portfolio',
@@ -274,12 +286,6 @@ export const projects = [
         name: 'Vintage Photo Booth',
         description: 'A web application that allows users to take photos with vintage filters and download them. Tech Stack: React, CSS, TypeScript',
         link: 'https://github.com/ritikalama0815/vintage-photo-booth',
-    },
-    {
-        theme: 'btn-back-yellow',
-        name: 'GitHub Architecture Analyzer',
-        description: 'A web application that allows users to analyze the architecture of a GitHub repository and visualize it in a graph. Tech: Angular, Nest.js, TypeScript',
-        link: 'https://github.com/ritikalama0815/github-architecture-analyzer',
     },
     {
         theme: 'btn-back-yellow',
@@ -328,5 +334,11 @@ export const projects = [
         name: 'Analysis of Player\'s Behavior',
         description: 'This project examines how player activity and engagement relate to in-game spending (one of my data science projects). Tech: R, Linear Regression, CART, PCA',
         link: 'https://github.com/ritikalama0815/Analysis-of-Player-s-Behavior',
+    },
+    {
+        theme: 'btn-back-blue',
+        name: 'Please checkout more on my GitHub.',
+        description: 'There are lot of other fun projects like flappy bird, word guesser, doodle museum, and so on!',
+        link: 'https://github.com/ritikalama0815?tab=repositories',
     }
 ];
