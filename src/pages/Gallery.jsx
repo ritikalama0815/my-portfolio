@@ -6,6 +6,7 @@ import TextType from '../components/TextType';
 import GlitchPageLayout from '../components/GlitchPageLayout';
 import { getCachedDisplayUrl, preloadGalleryImages, preloadGalleryNeighbors } from '../utils/imageCache';
 import {
+  tsaritsa,
   ai,
   sandbina,
   columbina,
@@ -45,6 +46,7 @@ import {
  * }[]}
  */
 const ARTWORKS = [
+  {id: 22, title: 'Anastasya Snezhnaya', image: tsaritsa, text: 'tsaritsa', description: 'that one medical reference of troachlear nerve palsy. it very famous reference in art community. ', year: 'Sept 2026'},
   {id: 21, title: 'Song to the Mirrored Moon', image: columbinaS, text: 'columbina', description: 'i have been insanely studying full body and background, and this is one of the by products. took me around 3 hours!', year: 'Sept 2026'},
   {id: 20, title: 'Furina de Fontaine', image: furina, text: 'furina', description: 'one of the few ones with full background. background inspired by staryy nights of vincent van gogh.', year: 'Sept 2026'},
   {id: 19, title: 'Honored One', image: gojo, text: '6eyes', description: 'its easier to draw women than guys. so, he is one of the few ones to be shown.', year: 'Sept 2026'},
