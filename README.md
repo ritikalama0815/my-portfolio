@@ -218,6 +218,7 @@ CI (if configured) typically runs `npm ci`, lint, and build only — no deploy s
 - **Music:** [Sakura track](https://youtu.be/Kk60F8a7-Jw?si=j3ImUH62dr8mDKt4)
 - **Animated UI patterns:** inspired by / adapted from [React Bits](https://reactbits.dev/)
 - **Icons:** [SVG Repo](https://www.svgrepo.com/) and Lucide
+- **Readme and immediate bug fixes:** Cursor Agent
 
 ---
 
