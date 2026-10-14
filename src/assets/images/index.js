@@ -29,7 +29,11 @@ import columbina_sunset from './columbina_sunset.webp'
 import gojo from './gojo.webp'
 import furina from './furina.webp'
 import columbinaS from './columbina_s.webp'
+import tsaritsa from './tsaritsa.webp'
+import mitya from './mitya.webp'
 export {
+    mitya,
+    tsaritsa,
     columbinaS,
     gojo,
     furina,
