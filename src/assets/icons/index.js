@@ -30,9 +30,11 @@ import dotnet from './dotnet.svg'
 import electron from './electron.svg'
 import typescript from './typescript.svg'
 import cicd from './cicd.svg'
+import company from './company.png'
 
 
 export {
+    company,
     cicd,
     dotnet,
     electron,
