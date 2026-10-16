@@ -31,6 +31,7 @@ import {
   electron,
   typescript,
   dotnet,
+  company
 } from '../assets/icons';
 
 /**
@@ -108,7 +109,7 @@ export const skills = [
         name: "Java",
         type: "Development",
     },
-     {
+    {
         imageUrl: nextjs,
         name: "Next.js",
         type: "Frontend",
@@ -182,6 +183,14 @@ export const skills = [
  * @type {{ title: string, company_name: string, icon: string, date: string, points: string[] }[]}
  */
 export const experiences = [
+    {
+        title: "Full Stack Developer",
+        company_name: "Kocher+Beck USA, LP",
+        icon: company,
+        date: "October 2026 - Present",
+        points: [
+            "As a Full Stack Developer I at Kocher & Beck, I contribute to the design, development, deployment, and maintenance of internal business application that support daily operations and improve organizational efficiency. My responsibilities include developing frontend and backend functionalities, building RESTful APIs, integrating internal systems, and managing SQL databases. I also troubleshoot software issues, modernize existing applications, participate in code reviews and software testing, and support application deployments and continuous improvement initiatives. Additionally, I collaborate with team members to develop scalable, reliable, and maintainable software solutions while maintaining technical documentation and application specifications."],
+    },
     {
         title: "Machine Learning Researcher",
         company_name: "Computer Science Department",
